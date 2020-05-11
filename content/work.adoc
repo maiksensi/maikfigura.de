@@ -1,0 +1,21 @@
+= Work
+
+== 2018 - today
+
+*codecentric AG, Stuttgart*, IT Consultant with main focus on Chaos Engineering.
+
+== 2016 - 2018 
+
+*Mackevision Medien Design GmbH, Stuttgart*, Software Developer / Tech Lead Backend with strong focus on Java, Python, microservices, AWS cloud solutions and agile workflows.
+
+== 2013 - 2016
+
+*Master of Arts (M.A.) in Audiovisual Media at Hochschule der Medien Stuttgart*, Master thesis "Konzepte und Anforderungen eines Open-Source Buildservers für Python Projekte".
+
+== 2009 - 2013
+
+*Bachelor of Engineering (B.Eng.) in Audiovisual Media at Hochschule der Medien Stuttgart*, Bachelor thesis at Trixter Munich "Developing an Implicit Field Plugin for RenderMan Pro Server 17".
+
+== 2006 - 2009
+
+*Mehl-Computer, Dettenhausen* IT System Electronics Technican, specialized in VMWare ESX Servers, setup and maintainance of linux and windows servers.

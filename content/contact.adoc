@@ -1,0 +1,8 @@
+= Contact
+
+If you want to contact me, you will find all contact details at https://keybase.io/maiksensi. To contact me via email please import my pgp key which lists all available email addresses to contact me. You can import my public key via: 
+
+[source,bash]
+----
+curl https://keybase.io/maiksensi/pgp_keys.asc | gpg --import
+----
