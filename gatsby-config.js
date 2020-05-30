@@ -3,7 +3,6 @@
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
-
 module.exports = {
   /* Your site config here */
   plugins: [
@@ -16,6 +15,14 @@ module.exports = {
     },
     "gatsby-transformer-asciidoc",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-material-ui",
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [require(`tailwindcss`), require(`autoprefixer`)],
+      },
+    },
   ],
+  siteMetadata: {
+    navPages: ["about", "appearances", "contact", "work", "privacy"],
+  },
 }

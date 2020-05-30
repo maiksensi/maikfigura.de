@@ -1,12 +1,15 @@
 = Appearances
 
 == Journals
-* __https://info.codecentric.de/softwerker-vol-14[Experimentieren geht über Studieren - Chaos-Engineering-Experimente mit Istio (german)]__; April 2020; Softwerker Vol. 14; codecentric AG
+
+* __https://info.codecentric.de/softwerker-vol-14[Experimentieren geht über Studieren - Chaos-Engineering-Experimente mit Istio (german)]__; April 2020; + 
+Softwerker Vol. 14; codecentric AG
 
 == Conferences and Meetups
+* __Wie Primaten und Warzenschweine uns halfen resilienter zu werden (german)__; June 2020; https://info.codecentric.de/softwerkerkonf-2020[SoftwerkerKonf]
 * __The Hitchhiker’s Guide to Chaos Engineering (german)__; June 2020; Digital Xchange 2020; remote on demand track
 * __https://youtu.be/tReN0gd4FeM[The Hitchhiker’s Guide to Chaos Engineering (german)]__ & __https://youtu.be/lptS-cQZhJQ?t=4449[Wie Primaten & Warzenschweine uns halfen resilienter zu werden (german)]__; May 2020; Softwerkskammer Chemnitz & Thüringen & Nürnberg, Leipzig Software Craft Meetup, DevOps Thüringen Meetup; Joint Virtual Meetup Chaos Engineering
-* __A Hitchhikers Guide to Chaos Engineering (german)* & *Wie Primaten und Warzenschweine uns halfen resilienter zu werden (german)__; March 2020; Softwerkskammer Düsseldorf; remote evening: Chaos Engineering
+* __A Hitchhikers Guide to Chaos Engineering (german)__ & __Wie Primaten und Warzenschweine uns halfen resilienter zu werden (german)__; March 2020; Softwerkskammer Düsseldorf; remote evening: Chaos Engineering
 
 == Online Media
 * __https://blog.codecentric.de/2019/07/code-splitting-mit-react-lazy-und-react-suspense/[Code Splitting mit React Lazy und React Suspense (german)]__; July 2019; codecentric AG

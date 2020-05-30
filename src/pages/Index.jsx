@@ -1,27 +1,10 @@
-import { graphql } from "gatsby"
+import { navigate } from "gatsby"
 import "highlight.js/styles/github.css"
-import React from "react"
-import Page from "../templates/page"
+import { useEffect } from "react"
 
-export default function Index({ data }) {
-  return <Page data={data} />
+export default function Index() {
+  useEffect(() => {
+    navigate("/about")
+  })
+  return null
 }
-
-// render about page as index page
-export const query = graphql`
-  query {
-    asciidoc: asciidoc(fields: { slug: { eq: "/about/" } }) {
-      html
-      document {
-        title
-      }
-    }
-    allSitePage {
-      edges {
-        node {
-          id
-        }
-      }
-    }
-  }
-`

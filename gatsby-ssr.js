@@ -1,6 +1,9 @@
 import React from "react"
-import HeadersAndGlobals from "./src/components/HeadersAndGlobals"
+import Header from "./src/components/Header"
+import "./src/styles/globals.css"
+require("typeface-inter")
+require("typeface-fira-code")
 
 export const wrapRootElement = ({ element }) => {
-  return <HeadersAndGlobals>{element}</HeadersAndGlobals>
+  return <Header>{element}</Header>
 }

@@ -1,0 +1,43 @@
+.nav {
+  transform: translateX(+100%);
+  transition: all 275ms ease-in-out;
+}
+
+.shown {
+  @apply w-screen;
+  transform: translateX(0);
+}
+
+.burger > div {
+  height: 0.25rem;
+  border-radius: 10px;
+  transition: all 275ms ease-in-out;
+  transform-origin: 33px;
+}
+
+.burger > div:first-child {
+  transform: rotate(0);
+}
+
+.burger > div:nth-child(2) {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.burger > div:nth-child(3) {
+  transform: rotate(0);
+}
+
+.open > div:first-child {
+  transform: rotate(-45deg);
+}
+
+.open > div:nth-child(2) {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-20px);
+}
+
+.open > div:nth-child(3) {
+  transform: rotate(45deg);
+}

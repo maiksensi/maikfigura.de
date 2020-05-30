@@ -1,0 +1,52 @@
+/* ! purgecss start ignore */
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+/* ! purgecss end ignore */
+
+@import "tailwindcss/utilities";
+
+/* define global sizes for headings  */
+h1 {
+  @apply text-2xl;
+}
+
+h2 {
+  @apply pt-4;
+  @apply text-xl;
+}
+
+h3 {
+  @apply text-lg;
+}
+
+/* define styling for navigation  */
+@variants hover {
+  .menu-underline {
+    text-decoration: #4a5568 underline;
+  }
+}
+
+@variants focus {
+  .menu-underline {
+    text-decoration: #1a202c underline;
+  }
+}
+
+/* global style for links */
+a {
+  @apply text-gray-700;
+}
+
+a:hover {
+  @apply text-gray-900;
+  text-decoration: #4a5568 underline;
+}
+
+a:focus {
+  text-decoration: #1a202c underline;
+}
+
+html {
+  @apply bg-gray-100;
+}
