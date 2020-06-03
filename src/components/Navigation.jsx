@@ -27,7 +27,7 @@ export default function Navigation() {
   return (
     <nav
       role="navigation"
-      className="flex justify-end items-center sm:justify-center sm:flex-wrap bg-gray-300 h-16"
+      className="flex justify-end items-center sm:justify-center sm:flex-wrap bg-gray-300 h-16 w-full fixed top-0"
     >
       {/* desktop navigation */}
       <NavigationItems
