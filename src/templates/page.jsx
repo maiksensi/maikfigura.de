@@ -11,7 +11,10 @@ export default function Page({ data }) {
   return (
     <>
       <Navigation />
-      <Content content={content} className={ContentStyles.page__content} />
+      <Content
+        content={content}
+        className={ContentStyles.page__content + " mt-16"}
+      />
     </>
   )
 }
