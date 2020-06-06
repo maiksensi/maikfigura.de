@@ -1,9 +1,9 @@
 import { graphql } from "gatsby"
 import "highlight.js/styles/github.css"
 import React from "react"
+import { Content } from "../components/Content"
 import Navigation from "../components/Navigation"
 import ContentStyles from "./ContentStyles.module.css"
-import { Content } from "../components/Content"
 
 export default function Page({ data }) {
   const content = data.asciidoc

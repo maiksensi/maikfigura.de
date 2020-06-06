@@ -7,9 +7,7 @@ export default function NavigationItems({ ulClasses, liClasses, pagenames }) {
       {pagenames.map(pagename => {
         return (
           <li className={liClasses} key={pagename}>
-            <h1>
-              <NavigationLink label={pagename} />
-            </h1>
+            <NavigationLink label={pagename} />
           </li>
         )
       })}

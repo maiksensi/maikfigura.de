@@ -1,5 +1,5 @@
 :bl: pass:[ +]
-= About
+= About Me
 
 🧗‍♂️ Hi! My name is Maik 👋. I'm a Software Engineer and a Chaos Engineer. I studied at https://www.hdm-stuttgart.de/[HdM Stuttgart] where I graduated with a Bachelor degree in audiovisual media and a Master's degree in electronic media with a strong focus on visual effects and software development.
 

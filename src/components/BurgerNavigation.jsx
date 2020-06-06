@@ -31,6 +31,7 @@ export default function BurgerNavigation({ open, setOpen, pagenames }) {
           " text-center flex flex-col justify-center items-center sm:hidden bg-gray-200 overflow-x-hidden w-0 h-screen absolute top-0 right-0 " +
           (open ? NavigationStyle.shown : "")
         }
+        liClasses="text-2xl"
         pagenames={pagenames}
       />
     </>

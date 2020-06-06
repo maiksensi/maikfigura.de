@@ -24,5 +24,15 @@ module.exports = {
   ],
   siteMetadata: {
     navPages: ["about", "appearances", "contact", "work", "privacy"],
+    headerMetadata: {
+      siteUrl: "https://maikfigura.de",
+      lang: "en",
+      title: "Maik Figura's homepage, Chaos Engineer at codecentric AG",
+      description:
+        "Personal homepage of Maik Figura, a Chaos Engineer at codecentric AG",
+      keywords: ["Software Engineer", "IT Consultant", "Chaos Engineer"],
+      canonicalUrl: "https://maikfigura.de",
+      themeColor: "#ff0000",
+    },
   },
 }

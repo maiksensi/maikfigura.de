@@ -32,7 +32,7 @@ export default function Navigation() {
       {/* desktop navigation */}
       <NavigationItems
         ulClasses="hidden sm:flex sm:flex-row"
-        liClasses="mx-4"
+        liClasses="mx-4 text-2xl"
         pagenames={pagenames}
       />
 

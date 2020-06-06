@@ -37,7 +37,7 @@ describe("Navigate", () => {
 
   it("navigates from about to about", () => {
     cy.findByRole("link", { name: /about/i }).click()
-    cy.findByText("About")
+    cy.findByText("About Me")
     cy.checkA11y()
   })
 })
