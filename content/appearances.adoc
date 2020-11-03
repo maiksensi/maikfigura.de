@@ -6,12 +6,17 @@
 Softwerker Vol. 14; codecentric AG
 
 == Conferences and Meetups
-* __Wie Primaten und Warzenschweine uns halfen resilienter zu werden (german)__; June 2020; https://info.codecentric.de/softwerkerkonf-2020[SoftwerkerKonf]
-* __The Hitchhiker’s Guide to Chaos Engineering (german)__; June 2020; Digital Xchange 2020; remote on demand track
-* __https://youtu.be/tReN0gd4FeM[The Hitchhiker’s Guide to Chaos Engineering (german)]__ & __https://youtu.be/lptS-cQZhJQ?t=4449[Wie Primaten & Warzenschweine uns halfen resilienter zu werden (german)]__; May 2020; Softwerkskammer Chemnitz & Thüringen & Nürnberg, Leipzig Software Craft Meetup, DevOps Thüringen Meetup; Joint Virtual Meetup Chaos Engineering
-* __A Hitchhikers Guide to Chaos Engineering (german)__ & __Wie Primaten und Warzenschweine uns halfen resilienter zu werden (german)__; March 2020; Softwerkskammer Düsseldorf; remote evening: Chaos Engineering
+* __https://www.containerconf.de/lecture_compact1.php?id=12061[Wie Primaten & Warzenschweine uns halfen, resilienter zu werden (german)]__; March 2021; https://www.containerconf.de/[Continuous Lifecycle, Container Conf]
+* __https://www.ittage.informatik-aktuell.de/programm/2020/mit-chaos-engineering-komplexe-softwaresysteme-robust-machen.html[Mit Chaos Engineering komplexe Softwaresysteme robust machen (german)]__; December 2020; https://www.ittage.informatik-aktuell.de/[IT-Tage]
+* __https://www.containerconf.de/lecture_compact1.php?id=12564[Mit Chaos Engineering resiliente Software gestalten (german)]__; November 2020; https://www.containerconf.de/[Continuous Lifecycle, Container Conf]
+* __https://www.buildstuff.events/agenda[Clear the ring for Chaos Engineering at Vertrieb Deutsche Bahn! One year sensations and attractions!]__; November 2020; https://www.buildstuff.events/[BuildStuff]
+* __https://youtu.be/sHjRAeA0e4w[Wie Primaten und Warzenschweine uns halfen resilienter zu werden (german)]__; June 2020; https://info.codecentric.de/softwerkerkonf-2020[SoftwerkerKonf]
+* __https://youtu.be/0XcM8W6HbfE[The Hitchhiker’s Guide to Chaos Engineering (german)]__; June 2020; https://digital-xchange.de/[Digital Xchange]; remote on demand track
+* __https://youtu.be/tReN0gd4FeM[The Hitchhiker’s Guide to Chaos Engineering (german)]__ & __https://youtu.be/lptS-cQZhJQ?t=4449[Wie Primaten & Warzenschweine uns halfen resilienter zu werden (german)]__; May 2020; Softwerkskammer Chemnitz & Thüringen & https://www.softwerkskammer.org/activities/chaos_engineering_remote[Nürnberg], Leipzig Software Craft Meetup, DevOps Thüringen Meetup; Joint Virtual Meetup Chaos Engineering
+* __A Hitchhikers Guide to Chaos Engineering (german)__ & __Wie Primaten und Warzenschweine uns halfen resilienter zu werden (german)__; March 2020; https://www.meetup.com/Softwerkskammer-Dusseldorf/events/267915291/[Softwerkskammer Düsseldorf]; remote evening: Chaos Engineering
 
 == Online Media
+* __https://www.informatik-aktuell.de/entwicklung/methoden/chaos-engineering-kochkurs.html[Chaos-Engineering-Kochkurs (german)]__; September 2020; https://www.informatik-aktuell.de/[Informatik Aktuell] 
 * __https://blog.codecentric.de/2019/07/code-splitting-mit-react-lazy-und-react-suspense/[Code Splitting mit React Lazy und React Suspense (german)]__; July 2019; codecentric AG
 * __https://www.youtube.com/watch?v=_enycarYfLE[A Hitchhikers Guide to Chaos Engineering (german)]__; Mai 2020; __https://www.youtube.com/channel/UCCadM9XfyB78TEogPzwP7iQ[youtube channel codecentric AG]__
  
