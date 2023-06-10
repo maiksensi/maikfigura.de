@@ -22,7 +22,7 @@
     "validate": "npm-run-all --parallel check-format lint"
   },
   "dependencies": {
-    "gatsby": "^2.25.1",
+    "gatsby": "^4.25.7",
     "gatsby-plugin-postcss": "^3.0.4",
     "gatsby-plugin-react-helmet": "^3.3.14",
     "gatsby-source-filesystem": "^2.4.0",
