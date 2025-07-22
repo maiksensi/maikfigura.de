@@ -1,5 +1,0 @@
-/* override global list-none style for pages */
-.page__content ul {
-  @apply list-disc;
-  @apply pl-4;
-}

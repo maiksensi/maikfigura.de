@@ -1,10 +1,10 @@
 :bl: pass:[ +]
 = About Me
 
-🧗‍♂️ Hi! My name is Maik 👋. I'm a Software Engineer and a Chaos Engineer. I studied at https://www.hdm-stuttgart.de/[HdM Stuttgart] where I graduated with a Bachelor degree in audiovisual media and a Master's degree in electronic media with a strong focus on visual effects and software development.
+🧗‍♂️ Hi! My name is Maik 👋. I studied at https://www.hdm-stuttgart.de/[HdM Stuttgart] where I graduated with a Bachelor degree in audiovisual media and a Master's degree in electronic media with a strong focus on visual effects and software development.
 
 {bl}
-🏗 I work at https://www.codecentric.de/[codecentric AG] as an full time IT Consultant and Chaos Engineer.
+🏗 I work at https://www.porsche.digital/[PorscheDigital] as a part time System Architect.
 
 {bl}
 🎙 I love giving talks and workshops about Chaos Engineering. 
