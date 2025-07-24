@@ -28,12 +28,12 @@ export function getPageData(slug: string): PageData | null {
 
   const fileContent = fs.readFileSync(filePath, 'utf8')
   const doc = asciidoctor.load(fileContent)
-  
+
   // Convert and sanitize HTML at build time
   const rawHtml = doc.convert()
   const sanitizedHtml = purify.sanitize(rawHtml as string, {
     ALLOWED_TAGS: ['p', 'strong', 'em', 'ul', 'ol', 'li', 'a', 'h1', 'h2', 'h3', 'br', 'div'],
-    ALLOWED_ATTR: ['href', 'target', 'rel', 'class']
+    ALLOWED_ATTR: ['href', 'target', 'rel', 'class'],
   })
 
   return {

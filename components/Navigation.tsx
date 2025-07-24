@@ -38,7 +38,7 @@ const NavigationLink = ({ href, children, onClick, isActive = false }: Navigatio
 
 const BurgerButton = ({ isOpen, onClick }: BurgerButtonProps) => {
   const barBaseClasses = 'w-6 h-0.5 bg-gray-900 rounded transition-all duration-300'
-  
+
   return (
     <button
       aria-label={isOpen ? 'Close navigation' : 'Open navigation'}
@@ -48,9 +48,7 @@ const BurgerButton = ({ isOpen, onClick }: BurgerButtonProps) => {
     >
       {/* Top bar - rotates to form top part of X */}
       <div
-        className={`${barBaseClasses} origin-center ${
-          isOpen ? 'rotate-45 translate-y-1.5' : ''
-        }`}
+        className={`${barBaseClasses} origin-center ${isOpen ? 'rotate-45 translate-y-1.5' : ''}`}
         aria-hidden="true"
       />
       {/* Middle bar - slides left and fades out */}
@@ -62,9 +60,7 @@ const BurgerButton = ({ isOpen, onClick }: BurgerButtonProps) => {
       />
       {/* Bottom bar - rotates to form bottom part of X */}
       <div
-        className={`${barBaseClasses} origin-center ${
-          isOpen ? '-rotate-45 -translate-y-1.5' : ''
-        }`}
+        className={`${barBaseClasses} origin-center ${isOpen ? '-rotate-45 -translate-y-1.5' : ''}`}
         aria-hidden="true"
       />
     </button>
@@ -78,11 +74,14 @@ export default function Navigation() {
 
   // Memoize functions for better performance
   const closeMenu = useCallback(() => setIsOpen(false), [])
-  const toggleMenu = useCallback(() => setIsOpen(prev => !prev), [])
-  
-  const isActivePage = useCallback((page: string) => {
-    return router.asPath === `/${page}` || router.asPath === `/${page}/`
-  }, [router.asPath])
+  const toggleMenu = useCallback(() => setIsOpen((prev) => !prev), [])
+
+  const isActivePage = useCallback(
+    (page: string) => {
+      return router.asPath === `/${page}` || router.asPath === `/${page}/`
+    },
+    [router.asPath]
+  )
 
   // Handle body scroll lock
   useEffect(() => {
@@ -109,11 +108,14 @@ export default function Navigation() {
   return (
     <>
       {/* Main Navigation Header */}
-      <header 
+      <header
         className={`flex justify-end items-center sm:justify-center bg-gray-200 ${NAV_HEIGHT} w-full fixed top-0 ${NAV_Z_INDEX}`}
         role="banner"
       >
-        <nav aria-label="Main navigation" className="flex items-center w-full justify-end sm:justify-center">
+        <nav
+          aria-label="Main navigation"
+          className="flex items-center w-full justify-end sm:justify-center"
+        >
           {/* Desktop Navigation */}
           <ul className="hidden sm:flex sm:flex-row">
             {navPages.map((page) => (
@@ -142,8 +144,8 @@ export default function Navigation() {
         aria-label="Mobile navigation menu"
         onClick={closeMenu} // Close on backdrop click
       >
-        <nav 
-          className="flex flex-col justify-center items-center h-full" 
+        <nav
+          className="flex flex-col justify-center items-center h-full"
           aria-label="Mobile navigation"
           onClick={(e) => e.stopPropagation()} // Prevent closing when clicking nav content
         >

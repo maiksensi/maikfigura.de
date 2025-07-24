@@ -22,15 +22,15 @@
   html {
     @apply bg-gray-50 font-sans antialiased;
   }
-  
+
   h1 {
     @apply text-2xl font-bold;
   }
-  
+
   h2 {
     @apply pt-4 text-xl font-bold;
   }
-  
+
   h3 {
     @apply text-lg font-bold;
   }

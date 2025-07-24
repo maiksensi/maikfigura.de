@@ -1,0 +1,11 @@
+# PNPM Configuration
+
+save-exact=true
+
+# Install peer dependencies automatically (recommended for most projects)
+
+auto-install-peers=true
+
+# Show better error messages for dependency resolution issues
+
+resolution-mode=highest

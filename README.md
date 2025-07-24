@@ -9,7 +9,7 @@
 - **Content**: AsciiDoc processed with Asciidoctor.js
 - **Testing**: Playwright for E2E testing with accessibility checks
 - **Deployment**: Vercel with automatic deployments
-- **Package Manager**: npm (can upgrade to pnpm for better performance)
+- **Package Manager**: pnpm (faster installs, better dependency management)
 
 ## 📁 Project Structure
 
@@ -29,24 +29,24 @@
 ### Prerequisites
 
 - Node.js 18+
-- npm 7+
+- pnpm 9+
 
 ### Setup
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 ### Commands
 
-- `npm run dev` - Start development server with Turbopack
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Lint code
-- `npm run format` - Format code with Prettier
-- `npm run test:e2e` - Run Playwright tests
-- `npm run validate` - Run all checks (lint, format, type-check)
+- `pnpm run dev` - Start development server with Turbopack
+- `pnpm run build` - Build for production
+- `pnpm run start` - Start production server
+- `pnpm run lint` - Lint code
+- `pnpm run format` - Format code with Prettier
+- `pnpm run test:e2e` - Run Playwright tests
+- `pnpm run validate` - Run all checks (lint, format, type-check)
 
 ### Adding Content
 
@@ -106,16 +106,3 @@ npm run build
 - Tailwind CSS purging for minimal bundle size
 - Next.js Image optimization (disabled for static export)
 - TypeScript for better developer experience
-
-## 🔧 Migration Notes
-
-This site was migrated from Gatsby to Next.js for:
-
-- Better performance and developer experience
-- Simplified deployment with Vercel
-- Modern React features and TypeScript support
-- Reduced complexity (removed CSS modules, GraphQL layer)
-
----
-
-Built with ❤️ using Next.js and deployed on Vercel

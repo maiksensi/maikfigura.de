@@ -1,41 +1,41 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": ["config:recommended", ":pinAllExceptPeerDependencies"],
-    "commitMessagePrefix": "⬆️",
-    "updateNotScheduled": true,
-    "lockFileMaintenance": {
-        "enabled": true,
-        "commitMessageAction": "Update lock files"
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", ":pinAllExceptPeerDependencies"],
+  "commitMessagePrefix": "⬆️",
+  "updateNotScheduled": true,
+  "lockFileMaintenance": {
+    "enabled": true,
+    "commitMessageAction": "Update lock files"
+  },
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "@aws-sdk",
+        "@aws-cdk",
+        "aws-sdk-js-v3",
+        "aws-cdk",
+        "aws-cdk-lib",
+        "constructs",
+        "@types/node"
+      ],
+      "schedule": ["monthly"]
     },
-    "packageRules": [
-        {
-            "matchPackageNames": [
-                "@aws-sdk",
-                "@aws-cdk",
-                "aws-sdk-js-v3",
-                "aws-cdk",
-                "aws-cdk-lib",
-                "constructs",
-                "@types/node"
-            ],
-            "schedule": ["monthly"]
-        },
-        {
-            "matchDatasources": ["node-version"],
-            "matchPackageNames": ["node"],
-            "schedule": ["monthly"]
-        },
-        {
-            "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-            "automerge": true
-        },
-        {
-            "matchUpdateTypes": ["lockFileMaintenance"],
-            "automerge": true,
-            "schedule": ["monthly"]
-        }
-    ],
-    "timezone": "Europe/Berlin",
-    "schedule": ["before 6am every weekday"],
-    "baseBranchPatterns": ["master"]
+    {
+      "matchDatasources": ["node-version"],
+      "matchPackageNames": ["node"],
+      "schedule": ["monthly"]
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "automerge": true,
+      "schedule": ["monthly"]
+    }
+  ],
+  "timezone": "Europe/Berlin",
+  "schedule": ["before 6am every weekday"],
+  "baseBranchPatterns": ["master"]
 }

@@ -16,7 +16,7 @@ export default function Page({ content }: PageProps) {
 
   return (
     <>
-      <SEO 
+      <SEO
         title={content.document.title}
         canonical={`${siteConfig.headerMetadata.siteUrl}/${content.slug}`}
       />

@@ -16,7 +16,7 @@ export const siteConfig: SiteConfig = {
   headerMetadata: {
     siteUrl: 'https://maikfigura.de',
     lang: 'en',
-    title: "Maik Figura - System Architect",
+    title: 'Maik Figura - System Architect',
     description: 'Personal homepage of Maik Figura, a System Architect at PorscheDigital',
     keywords: ['Software Engineer', 'System Architect', 'Chaos Engineer', 'PorscheDigital'],
     canonicalUrl: 'https://maikfigura.de',
