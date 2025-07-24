@@ -27,7 +27,6 @@
     "validate": "pnpm format:check && pnpm lint && pnpm type-check"
   },
   "dependencies": {
-    "@types/dompurify": "3.0.5",
     "asciidoctor": "3.0.4",
     "dompurify": "3.2.6",
     "next": "15.4.3",
