@@ -110,7 +110,6 @@ export default function Navigation() {
       {/* Main Navigation Header */}
       <header
         className={`flex justify-end items-center sm:justify-center bg-gray-200 ${NAV_HEIGHT} w-full fixed top-0 ${NAV_Z_INDEX}`}
-        role="banner"
       >
         <nav
           aria-label="Main navigation"
