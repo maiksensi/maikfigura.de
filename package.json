@@ -38,6 +38,7 @@
     "@axe-core/playwright": "4.10.2",
     "@eslint/eslintrc": "3.2.0",
     "@playwright/test": "1.54.1",
+    "@tailwindcss/postcss": "4.1.11",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.3.0",
     "@testing-library/user-event": "14.6.1",
@@ -52,7 +53,7 @@
     "jsdom": "26.1.0",
     "postcss": "8.5.6",
     "prettier": "3.3.3",
-    "tailwindcss": "3.4.17",
+    "tailwindcss": "4.1.11",
     "typescript": "5.8.3",
     "vitest": "3.2.4"
   }
