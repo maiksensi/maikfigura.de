@@ -1,6 +1,6 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": ["config:base", ":pinAllExceptPeerDependencies"],
+    "extends": ["config:recommended", ":pinAllExceptPeerDependencies"],
     "commitMessagePrefix": "⬆️",
     "updateNotScheduled": true,
     "lockFileMaintenance": {
@@ -21,7 +21,7 @@
             "schedule": ["monthly"]
         },
         {
-            "matchDatasources": ["node"],
+            "matchDatasources": ["node-version"],
             "matchPackageNames": ["node"],
             "schedule": ["monthly"]
         },
@@ -37,5 +37,5 @@
     ],
     "timezone": "Europe/Berlin",
     "schedule": ["before 6am every weekday"],
-    "baseBranches": ["master"]
+    "baseBranchPatterns": ["master"]
 }
