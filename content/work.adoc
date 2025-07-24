@@ -1,8 +1,11 @@
 = Work
 
-== 2018 - today
+== 2024 - today
+*Porsche Digital, Ludwigsburg*, System Architect. 
 
-*codecentric AG, Stuttgart*, IT Consultant with main focus on Chaos Engineering.
+== 2018 - 2024
+
+*codecentric AG, Stuttgart*, IT Consultant with focus on Resilience Engineering, Team Collaboration and Domain-Driven Architecture.
 
 == 2016 - 2018 
 

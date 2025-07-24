@@ -1,13 +1,13 @@
 :bl: pass:[ +]
 = About Me
 
-🧗‍♂️ Hi! My name is Maik 👋. I studied at https://www.hdm-stuttgart.de/[HdM Stuttgart] where I graduated with a Bachelor degree in audiovisual media and a Master's degree in electronic media with a strong focus on visual effects and software development.
+🧗‍♂️ Hi! My name is Maik 👋.
 
 {bl}
-🏗 I work at https://www.porsche.digital/[PorscheDigital] as a part time System Architect.
+🏗 I work at https://www.porsche.digital/[Porsche Digital] as a part time System Architect.
 
 {bl}
-🎙 I love giving talks and workshops about Chaos Engineering. 
+👷 I have strong interests in Domain-Driven Design, Resilience Engineering, and Observability. I enjoy collaborating with teams to develop practical and sustainable solutions while helping individuals reach their potential through encouragement and support.
 
 {bl}
 👻 Oh and I stutter, so what could possibly go wrong?
