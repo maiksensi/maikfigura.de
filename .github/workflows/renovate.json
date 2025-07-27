@@ -36,6 +36,6 @@
     }
   ],
   "timezone": "Europe/Berlin",
-  "schedule": ["before 6am every weekday"],
+  "schedule": ["before 6am"],
   "baseBranchPatterns": ["master"]
 }
