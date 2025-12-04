@@ -17,6 +17,9 @@ export default function Document() {
         {/* App meta */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="robots" content="noai, noimageai" />
+        <meta name="googlebot" content="noai, noimageai" />
+        <meta name="bingbot" content="noai, noimageai" />
       </Head>
       <body className="antialiased">
         <Main />
