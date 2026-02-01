@@ -30,6 +30,7 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   compress: true,
+  // Remove X-Powered-By: Next.js header for security (reduces information disclosure to attackers)
   poweredByHeader: false,
   async headers() {
     return [
