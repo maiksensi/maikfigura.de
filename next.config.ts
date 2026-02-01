@@ -18,11 +18,19 @@ const securityHeaders = [
     key: 'X-Robots-Tag',
     value: 'noai, noimageai',
   },
+  {
+    key: 'X-AI-Opt-Out',
+    value: 'all',
+  },
+  {
+    key: 'tdm-reservation',
+    value: '1',
+  },
 ]
 
 const nextConfig: NextConfig = {
   compress: true,
-  poweredByHeader: true,
+  poweredByHeader: false,
   async headers() {
     return [
       {
