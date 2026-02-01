@@ -20,6 +20,8 @@ export default function Document() {
         <meta name="robots" content="noai, noimageai" />
         <meta name="googlebot" content="noai, noimageai" />
         <meta name="bingbot" content="noai, noimageai" />
+        <meta name="ai-content-declaration" content="not-ai-generated" />
+        <meta name="ai-usage-restriction" content="no-training" />
       </Head>
       <body className="antialiased">
         <Main />

@@ -1,0 +1,17 @@
+{
+  "@context": "http://www.w3.org/ns/tdmrep",
+  "@type": "TDMReservationProtocol",
+  "version": "1.0",
+  "policy": {
+    "tdm": {
+      "reservation": 1,
+      "scope": "all"
+    }
+  },
+  "rightsHolder": {
+    "@type": "Person",
+    "name": "Maik Figura",
+    "url": "https://maikfigura.de"
+  },
+  "description": "This site reserves all rights for text and data mining (TDM), including for AI training purposes. Automated data extraction, crawling, or scraping for machine learning or AI model training is not permitted without explicit written permission."
+}

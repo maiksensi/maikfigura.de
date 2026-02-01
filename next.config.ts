@@ -18,11 +18,20 @@ const securityHeaders = [
     key: 'X-Robots-Tag',
     value: 'noai, noimageai',
   },
+  {
+    key: 'X-AI-Opt-Out',
+    value: 'all',
+  },
+  {
+    key: 'tdm-reservation',
+    value: '1',
+  },
 ]
 
 const nextConfig: NextConfig = {
   compress: true,
-  poweredByHeader: true,
+  // Remove X-Powered-By: Next.js header for security (reduces information disclosure to attackers)
+  poweredByHeader: false,
   async headers() {
     return [
       {
