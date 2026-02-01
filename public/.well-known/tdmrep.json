@@ -1,5 +1,5 @@
 {
-  "@context": "https://w3id.org/tdmrep",
+  "@context": "http://www.w3.org/ns/tdmrep",
   "@type": "TDMReservationProtocol",
   "version": "1.0",
   "policy": {
