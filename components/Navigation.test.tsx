@@ -1,11 +1,20 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import Navigation from '@/components/Navigation'
 
 // Mock Next.js Link component
 vi.mock('next/link', () => ({
-  default: ({ children, href, onClick, ...props }: any) => (
+  default: ({
+    children,
+    href,
+    onClick,
+    ...props
+  }: {
+    children: React.ReactNode
+    href: string
+    onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void
+  } & Record<string, unknown>) => (
     <a
       href={href}
       onClick={(e) => {

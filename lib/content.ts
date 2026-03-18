@@ -5,10 +5,11 @@ import DOMPurify from 'dompurify'
 import { JSDOM } from 'jsdom'
 
 const asciidoctor = Asciidoctor()
-const contentDirectory = path.join((process as any).cwd(), 'content')
+const contentDirectory = path.join(process.cwd(), 'content')
 
 // Create a JSDOM window for server-side DOMPurify
 const window = new JSDOM('').window
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const purify = DOMPurify(window as any)
 
 export interface PageData {
