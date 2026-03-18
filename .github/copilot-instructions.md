@@ -18,6 +18,7 @@ This is the personal homepage of Maik Figura, built with Next.js. The site uses 
 ## Code Style & Conventions
 
 Follow the Prettier config in `.prettierrc.js`:
+
 - No semicolons
 - Single quotes
 - 2-space indentation
