@@ -74,3 +74,5 @@ The site enforces strict security headers (CSP, HSTS, AI opt-out) defined in `ne
 ## Dependency Management
 
 Renovate bot is configured (`.github/renovate.json`) to auto-merge minor/patch updates and run lock file maintenance on a monthly schedule. Do not manually update dependency versions unless necessary—let Renovate handle routine updates.
+
+**Prefer pinned versions** for all dependencies (exact versions, not ranges). Use `"1.2.3"` instead of `"^1.2.3"` or `"~1.2.3"` to ensure reproducible installs and avoid unexpected breakage from upstream changes.
