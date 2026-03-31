@@ -19,3 +19,8 @@ playwright-report/
 test-results/
 
 tsconfig.tsbuildinfo
+
+# BMad
+_bmad/
+_bmad-output/
+.github/skills/
