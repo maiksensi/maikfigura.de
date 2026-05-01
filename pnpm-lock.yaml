@@ -25,8 +25,8 @@ importers:
         version: 19.2.5(react@19.2.5)
     devDependencies:
       '@axe-core/playwright':
-        specifier: 4.11.2
-        version: 4.11.2(playwright-core@1.59.1)
+        specifier: 4.11.3
+        version: 4.11.3(playwright-core@1.59.1)
       '@playwright/test':
         specifier: 1.59.1
         version: 1.59.1
@@ -127,8 +127,8 @@ packages:
     resolution: {integrity: sha512-iW7ACahOG0zZft4A/4CqDcc7JX+fWRNjV5tFAVkNCzwZD+EnFolPaUOPYt8jzadc0+Bgd80cQTtRMQnaaV1kkg==}
     engines: {node: '>=16'}
 
-  '@axe-core/playwright@4.11.2':
-    resolution: {integrity: sha512-iP6hfNl9G0j/SEUSo8M7D80RbcDo9KRAAfDP4IT5OHB+Wm6zUHIrm8Y51BKI+Oyqduvipf9u1hcRy57zCBKzWQ==}
+  '@axe-core/playwright@4.11.3':
+    resolution: {integrity: sha512-h/kfksv4F0cVIDlKpT4700OehdRgpvuVskuQ2nb7/JmtWUXpe9ftHAPtwyXGvVSsa6SJ64A9ER7Zrzc/sIvC4w==}
     peerDependencies:
       playwright-core: '>= 1.0.0'
 
@@ -1120,8 +1120,8 @@ packages:
     peerDependencies:
       postcss: ^8.1.0
 
-  axe-core@4.11.3:
-    resolution: {integrity: sha512-zBQouZixDTbo3jMGqHKyePxYxr1e5W8UdTmBQ7sNtaA9M2bE32daxxPLS/jojhKOHxQ7LWwPjfiwf/fhaJWzlg==}
+  axe-core@4.11.4:
+    resolution: {integrity: sha512-KunSNx+TVpkAw/6ULfhnx+HWRecjqZGTOyquAoWHYLRSdK1tB5Ihce1ZW+UY3fj33bYAFWPu7W/GRSmmrCGuxA==}
     engines: {node: '>=4'}
 
   babel-walk@3.0.0-canary-5:
@@ -2248,9 +2248,9 @@ snapshots:
       glob: 8.1.0
       unxhr: 1.2.0
 
-  '@axe-core/playwright@4.11.2(playwright-core@1.59.1)':
+  '@axe-core/playwright@4.11.3(playwright-core@1.59.1)':
     dependencies:
-      axe-core: 4.11.3
+      axe-core: 4.11.4
       playwright-core: 1.59.1
 
   '@babel/code-frame@7.29.0':
@@ -3008,7 +3008,7 @@ snapshots:
       postcss: 8.5.12
       postcss-value-parser: 4.2.0
 
-  axe-core@4.11.3: {}
+  axe-core@4.11.4: {}
 
   babel-walk@3.0.0-canary-5:
     dependencies:
