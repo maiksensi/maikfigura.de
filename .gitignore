@@ -26,7 +26,8 @@ _bmad-output/
 .github/skills/
 
 # Harness
-docs/
+docs/*
+!docs/testing-strategy.md
 
 # ohmyopencode
 .sisyphus/
