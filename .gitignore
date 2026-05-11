@@ -27,6 +27,7 @@ _bmad-output/
 
 # Harness
 docs/*
+!docs/git-safety.md
 !docs/testing-strategy.md
 
 # ohmyopencode
