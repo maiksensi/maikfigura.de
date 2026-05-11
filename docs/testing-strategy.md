@@ -1,6 +1,6 @@
 # Testing Strategy
 
-This site is a small static-first Next.js application, so the harness should stay fast and focused on the surfaces visitors actually use.
+This site is a small static-first Next.js application, so the testing guide should stay fast and focused on the surfaces visitors actually use.
 
 ## Project contract
 
@@ -21,13 +21,6 @@ Follow `.prettierrc.js`:
 - Max line width: 100 characters.
 
 All handoffs should pass `pnpm validate` before merge. Use exact dependency versions and let Renovate handle routine dependency updates.
-
-## Git safety
-
-- Never force push.
-- Do not decide to force push independently under any circumstance.
-- Before even asking the user about a force push, exhaust and explain safer alternatives such as a normal push, pull/rebase with conflict resolution, a new branch, a revert, or a follow-up commit.
-- Only if every safer alternative has been considered and rejected may you ask the user for explicit force-push approval.
 
 ## Content and static generation
 
@@ -76,6 +69,14 @@ pnpm validate     # Format check, lint, and type-check
 - **End-to-end tests**: Playwright for the real visitor flow across Chromium desktop and Mobile Chrome.
 - **Accessibility checks**: `@axe-core/playwright` on user-facing pages after layout or navigation changes.
 - **Build checks**: `next build` is the production contract for static generation, routing, and CSS compilation.
+
+## Testing sensor
+
+The testing sensor is the observable evidence that a change works through its user-facing surface:
+
+- Relevant automated checks pass for the touched surface.
+- The matching page or flow has been exercised manually, not just read in source.
+- Any skipped check is named with the reason and the residual risk.
 
 ## Current critical scenarios
 

@@ -1,3 +1,6 @@
 # Repository Agent Instructions
 
-Use `docs/testing-strategy.md` as the project harness for repository conventions, quality gates, and git safety rules.
+Use the repository guides in `docs/`:
+
+- `docs/testing-strategy.md` for testing conventions, quality gates, and manual QA sensors.
+- `docs/git-safety.md` for git operation safety, especially force-push rules.
