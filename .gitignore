@@ -24,3 +24,12 @@ tsconfig.tsbuildinfo
 _bmad/
 _bmad-output/
 .github/skills/
+
+# Harness
+docs/
+
+# ohmyopencode
+.sisyphus/
+
+# Next.js generated types
+next-env.d.ts
