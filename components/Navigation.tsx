@@ -26,25 +26,25 @@ const NavigationLink = ({ href, children, onClick, isActive = false }: Navigatio
     href={href}
     onClick={onClick}
     className={`
-      text-gray-700 hover:text-gray-900 hover:underline focus:underline 
-      transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900
-      ${isActive ? 'underline text-gray-900 font-medium' : ''}
+      nav-link text-[var(--color-fg)] hover:text-[var(--color-accent)]
+      ${isActive ? 'text-[var(--color-accent)] font-bold' : 'opacity-80'}
     `}
     aria-current={isActive ? 'page' : undefined}
   >
+    {isActive ? '> ' : ''}
     {children}
   </Link>
 )
 
 const BurgerButton = ({ isOpen, onClick }: BurgerButtonProps) => {
-  const barBaseClasses = 'w-6 h-0.5 bg-gray-900 rounded transition-all duration-300'
+  const barBaseClasses = 'w-6 h-0.5 bg-[var(--color-accent)] rounded transition-all duration-300'
 
   return (
     <button
       aria-label={isOpen ? 'Close navigation' : 'Open navigation'}
       aria-expanded={isOpen}
       onClick={onClick}
-      className="h-8 w-8 flex flex-col justify-center items-center gap-1 sm:hidden mr-5 z-20 relative focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900"
+      className="h-8 w-8 flex flex-col justify-center items-center gap-1 sm:hidden mr-5 z-20 relative focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
     >
       {/* Top bar - rotates to form top part of X */}
       <div
@@ -109,16 +109,17 @@ export default function Navigation() {
     <>
       {/* Main Navigation Header */}
       <header
-        className={`flex justify-end items-center sm:justify-center bg-gray-200 ${NAV_HEIGHT} w-full fixed top-0 ${NAV_Z_INDEX}`}
+        className={`flex justify-end items-center sm:justify-center bg-[var(--color-bg)]/90 backdrop-blur-sm border-b border-[var(--color-card-border)] ${NAV_HEIGHT} w-full fixed top-0 ${NAV_Z_INDEX}`}
       >
         <nav
           aria-label="Main navigation"
-          className="flex items-center w-full justify-end sm:justify-center"
+          className="flex items-center w-full justify-between sm:justify-center px-4"
         >
+          <div className="sm:hidden text-[var(--color-accent)] font-bold pl-2">maik.figura ~/</div>
           {/* Desktop Navigation */}
           <ul className="hidden sm:flex sm:flex-row">
             {navPages.map((page) => (
-              <li key={page} className="mx-4 text-2xl">
+              <li key={page} className="mx-4 text-xl">
                 <NavigationLink href={`/${page}`} isActive={isActivePage(page)}>
                   {page}
                 </NavigationLink>
@@ -134,7 +135,7 @@ export default function Navigation() {
       {/* Mobile Navigation Overlay */}
       <div
         className={`
-          fixed top-16 left-0 right-0 bottom-0 bg-gray-200 ${OVERLAY_Z_INDEX} sm:hidden 
+          fixed top-16 left-0 right-0 bottom-0 bg-[var(--color-bg)] ${OVERLAY_Z_INDEX} sm:hidden 
           transition-transform ${TRANSITION_DURATION}
           ${isOpen ? 'transform translate-x-0' : 'transform translate-x-full'}
         `}

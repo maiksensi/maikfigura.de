@@ -27,7 +27,7 @@ export default function Page({ content }: PageProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs = getAllPageSlugs()
+  const slugs = getAllPageSlugs().filter((slug) => slug !== 'about')
 
   return {
     paths: slugs.map((slug) => ({

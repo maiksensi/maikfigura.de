@@ -1,17 +1,214 @@
 @import 'tailwindcss';
 
+@theme {
+  --color-bg: #0f111a;
+  --color-fg: #d4d4d4;
+  --color-accent: #22c55e;
+  --color-card-bg: #161b22;
+  --color-card-border: #30363d;
+
+  --font-mono:
+    'JetBrains Mono', 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+}
+
 @layer base {
   html {
-    @apply bg-gray-50 font-sans antialiased;
+    @apply bg-[var(--color-bg)] text-[var(--color-fg)] font-mono antialiased;
+  }
+
+  body {
+    @apply bg-[var(--color-bg)] text-[var(--color-fg)];
   }
 
   h2 {
-    @apply pt-4 text-xl font-bold;
+    @apply pt-4 text-xl font-bold text-[var(--color-accent)];
+  }
+
+  ::selection {
+    @apply bg-[var(--color-accent)] text-black;
   }
 }
 
 @layer components {
-  .content ul {
-    @apply list-disc;
+  .ambient-shell {
+    background-color: var(--color-bg);
+    background-image:
+      radial-gradient(circle at 15% 10%, rgb(34 197 94 / 0.12), transparent 24rem),
+      radial-gradient(circle at 85% 0%, rgb(212 212 212 / 0.06), transparent 20rem),
+      linear-gradient(rgb(34 197 94 / 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(34 197 94 / 0.04) 1px, transparent 1px);
+    background-size:
+      auto,
+      auto,
+      44px 44px,
+      44px 44px;
+  }
+
+  .ambient-shell::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      180deg,
+      rgb(212 212 212 / 0.035) 0,
+      rgb(212 212 212 / 0.035) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+    mix-blend-mode: screen;
+    opacity: 0.38;
+  }
+
+  .terminal-panel {
+    @apply border border-[var(--color-card-border)] bg-[var(--color-card-bg)]/70 shadow-2xl shadow-black/30 backdrop-blur-sm;
+  }
+
+  .terminal-panel::before {
+    content: 'maik.figura ~/about';
+    @apply block border-b border-[var(--color-card-border)] px-4 py-2 text-xs text-[var(--color-accent)]/80;
+    background: linear-gradient(90deg, rgb(34 197 94 / 0.1), transparent);
+  }
+
+  .hero-ascii {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    font-size: clamp(0.36rem, 1.65vw, 1rem);
+    scrollbar-width: thin;
+    animation: terminal-reveal 1.4s steps(34, end) both;
+    filter: drop-shadow(0 0 18px rgb(34 197 94 / 0.28));
+  }
+
+  .terminal-caret {
+    animation: terminal-blink 1s steps(2, start) infinite;
+  }
+
+  .stat-card {
+    @apply flex min-h-28 flex-col justify-start px-4 pb-4 pt-5 md:min-h-32 md:px-5 md:pb-4 md:pt-7 xl:px-6;
+  }
+
+  .stat-card-value {
+    @apply text-[var(--color-accent)] font-bold leading-tight tracking-tight;
+    font-size: clamp(1.25rem, 1.85vw, 1.7rem);
+    text-wrap: balance;
+  }
+
+  @media (width >= 64rem) {
+    .stat-card-value {
+      letter-spacing: -0.035em;
+    }
+  }
+
+  .stat-card-label {
+    @apply mt-2 text-xs uppercase text-gray-400 sm:text-sm;
+    letter-spacing: 0.11em;
+  }
+
+  @media (width >= 40rem) {
+    .stat-card-label {
+      letter-spacing: 0.18em;
+    }
+  }
+
+  .nav-link {
+    @apply relative inline-flex items-center no-underline transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)];
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-[var(--color-accent)] transition-transform duration-300;
+  }
+
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after,
+  .nav-link[aria-current='page']::after {
+    @apply scale-x-100;
+  }
+
+  .nav-link:hover {
+    text-shadow: 0 0 16px rgb(34 197 94 / 0.45);
+  }
+
+  .adoc-content ul {
+    @apply list-none pl-0;
+  }
+
+  .adoc-content li {
+    @apply relative pl-4 mb-2;
+  }
+
+  .adoc-content li::before {
+    content: '>';
+    @apply absolute left-0 text-[var(--color-accent)] font-bold;
+  }
+
+  .adoc-content a {
+    @apply text-[var(--color-accent)] underline underline-offset-4 decoration-[var(--color-accent)]/30 hover:decoration-[var(--color-accent)];
+  }
+
+  .adoc-content p {
+    @apply mb-4 leading-relaxed;
+  }
+
+  .timeline-cards h2 {
+    @apply text-sm text-[var(--color-accent)]/80 mb-2 mt-6 pt-0 font-normal;
+  }
+
+  .timeline-cards p {
+    @apply bg-[var(--color-card-bg)]/85 border border-[var(--color-card-border)] p-4 rounded-sm text-sm mb-0 relative transition-all duration-300;
+  }
+
+  .timeline-cards p:hover {
+    @apply -translate-y-1 border-[var(--color-accent)]/50 shadow-lg shadow-[var(--color-accent)]/10;
+  }
+
+  .timeline-cards p::before {
+    content: '';
+    @apply absolute left-0 top-0 bottom-0 w-1 bg-[var(--color-accent)]/50;
+  }
+
+  .timeline-cards p strong {
+    @apply inline text-[var(--color-fg)] font-bold;
+  }
+
+  .terminal-text p {
+    @apply opacity-90;
+  }
+}
+
+@keyframes terminal-reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0.3;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes terminal-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  46%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
