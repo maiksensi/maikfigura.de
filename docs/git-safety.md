@@ -1,7 +1,6 @@
 # Git Safety Harness
 
-This harness governs git operations. Keep it separate from the testing guide so repository
-safety rules are findable and not hidden in test documentation.
+This harness governs git operations. It enforces a non-negotiable force-push rule and requires a manual git safety sensor check before any destructive git command. The goal is to prevent accidental data loss and ensure safer alternatives are considered before any history rewrite on remote branches.
 
 ## Non-negotiable force-push rule
 
@@ -32,8 +31,7 @@ The sensor passes only when:
 - The commit split matches the change concerns.
 - The planned push is a normal push.
 
-If a normal push is rejected, stop and choose a safer alternative before any force-push
-discussion.
+If a normal push is rejected, stop and choose a safer alternative before any force-push discussion with the user.
 
 ## Safer alternatives before force-push
 

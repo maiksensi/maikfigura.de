@@ -14,11 +14,11 @@ interface SiteConfig {
 export const siteConfig: SiteConfig = {
   navPages: ['about', 'appearances', 'contact', 'work', 'privacy'],
   headerMetadata: {
-    siteUrl: 'https://maikfigura.de',
+    siteUrl: 'https://www.maikfigura.de',
     lang: 'en',
     title: 'Maik Figura - System Architect',
     description: 'Personal homepage of Maik Figura, a System Architect at PorscheDigital',
     keywords: ['Software Engineer', 'System Architect', 'Chaos Engineer', 'PorscheDigital'],
-    canonicalUrl: 'https://maikfigura.de',
+    canonicalUrl: 'https://www.maikfigura.de',
   },
 }
