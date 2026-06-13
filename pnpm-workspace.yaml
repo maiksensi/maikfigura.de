@@ -1,3 +1,6 @@
+# 4320 min = 3 days. Keep in sync with renovate.json minimumReleaseAge.
+minimumReleaseAge: 4320
+
 allowBuilds:
   esbuild: true
   sharp: true
