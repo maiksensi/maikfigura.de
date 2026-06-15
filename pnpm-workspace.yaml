@@ -1,5 +1,5 @@
-# 4320 min = 3 days. Keep in sync with renovate.json minimumReleaseAge.
-minimumReleaseAge: 4320
+# 2880 min = 2 days: safety net kept below renovate.json's 3-day gate.
+minimumReleaseAge: 2880
 
 allowBuilds:
   esbuild: true
