@@ -4,3 +4,6 @@ minimumReleaseAge: 2880
 allowBuilds:
   esbuild: true
   sharp: true
+minimumReleaseAgeExclude:
+  # Renovate security update: dompurify@3.4.11
+  - dompurify@3.4.11
