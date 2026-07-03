@@ -29,9 +29,11 @@ _bmad-output/
 docs/*
 !docs/git-safety.md
 !docs/testing-strategy.md
+!docs/dependency-management.md
 
 # ohmyopencode
 .sisyphus/
+.omo/
 
 # Next.js generated types
 next-env.d.ts
