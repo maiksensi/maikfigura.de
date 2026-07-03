@@ -1,8 +1,8 @@
-import { SEO } from '@/components/SEO'
-import Navigation from '@/components/Navigation'
-import { getPageData, PageData } from '@/lib/content'
-import { siteConfig } from '@/lib/config'
 import { GetStaticProps } from 'next'
+import Navigation from '@/components/Navigation'
+import { SEO } from '@/components/SEO'
+import { siteConfig } from '@/lib/config'
+import { getPageData, PageData } from '@/lib/content'
 
 interface AboutPageProps {
   aboutContent: PageData

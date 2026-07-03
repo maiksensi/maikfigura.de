@@ -1,0 +1,3 @@
+# Contact
+
+If you want to contact me use <https://www.linkedin.com/in/maiksensi/>.

@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { JetBrains_Mono, Inter } from 'next/font/google'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 
 const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' })
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })

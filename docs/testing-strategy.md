@@ -6,27 +6,30 @@ This site is a small static-first Next.js application, so the testing guide shou
 
 - **Framework**: Next.js 16 with React 19 and TypeScript.
 - **Styling**: Tailwind CSS 4 with PostCSS.
-- **Content**: AsciiDoc files in `content/`, rendered with Asciidoctor and sanitized with DOMPurify in `lib/content.ts`.
+- **Content**: Markdown files in `content/`, rendered with `marked` and sanitized with DOMPurify in `lib/content.ts`.
 - **Runtime**: Node `24.x`, matching the Vercel production setting.
 - **Package manager**: pnpm 11, pinned through `packageManager` and constrained by `engines.pnpm`.
 
 ## Code conventions
 
-Follow `.prettierrc.js`:
+Formatting and import ordering are enforced by Biome (`biome.json`):
 
 - No semicolons.
 - Single quotes.
 - 2-space indentation.
 - ES5 trailing commas.
 - Max line width: 100 characters.
+- Imports are sorted automatically (Biome assist `organizeImports`).
 
-All handoffs should pass `pnpm validate` before merge. Use exact dependency versions and let Renovate handle routine dependency updates.
+Biome owns formatting for `.ts/.tsx/.json`; ESLint (`typescript-eslint`) owns linting. Tailwind CSS and Markdown are excluded from Biome and are not auto-formatted.
+
+All handoffs should pass `pnpm validate` before merge. Use exact dependency versions and let Renovate handle routine dependency updates; see `docs/dependency-management.md` for the pin policy and its sensor.
 
 ## Content and static generation
 
 To add a content-backed page:
 
-1. Create a `.adoc` file in `content/`.
+1. Create a `.md` file in `content/`.
 2. Add the page slug to `navPages` in `lib/config.ts`.
 3. The dynamic route prerenders it through `getStaticPaths` and `getStaticProps`.
 
@@ -34,20 +37,20 @@ To add a content-backed page:
 
 ## Security notes
 
-Security headers live in `next.config.ts`. When adding external resources, update the CSP deliberately. HTML generated from AsciiDoc must stay sanitized through the DOMPurify allowlist in `lib/content.ts`.
+Security headers live in `next.config.ts`. When adding external resources, update the CSP deliberately. HTML generated from Markdown must stay sanitized through the DOMPurify allowlist in `lib/content.ts`.
 
 ## Quality gates
 
 Run these before handing off a visual or content change:
 
 ```bash
-pnpm lint
+pnpm validate     # biome check (format + import sort), eslint, tsc --noEmit
 pnpm test
 pnpm build
 pnpm test:e2e
 ```
 
-`pnpm validate` remains useful for formatting, linting, and type-checking, but it does not replace the Playwright harness.
+`pnpm validate` covers formatting (`pnpm format:check`), linting, and type-checking in one step, and the CI harness runs it on every push and pull request. It does not replace the Playwright harness, so still run `pnpm test:e2e`. Formatting is not optional: `pnpm format:check` must report no issues before merge.
 
 Common commands:
 
@@ -75,6 +78,7 @@ pnpm validate     # Format check, lint, and type-check
 The testing sensor is the observable evidence that a change works through its user-facing surface:
 
 - Relevant automated checks pass for the touched surface.
+- `pnpm format:check` reports no formatting issues (also enforced by `pnpm validate` and CI).
 - The matching page or flow has been exercised manually, not just read in source.
 - Any skipped check is named with the reason and the residual risk.
 

@@ -1,9 +1,9 @@
-import { Content } from '@/components/Content'
-import { SEO } from '@/components/SEO'
-import Navigation from '@/components/Navigation'
-import { getPageData, getAllPageSlugs, PageData } from '@/lib/content'
-import { siteConfig } from '@/lib/config'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { Content } from '@/components/Content'
+import Navigation from '@/components/Navigation'
+import { SEO } from '@/components/SEO'
+import { siteConfig } from '@/lib/config'
+import { getAllPageSlugs, getPageData, PageData } from '@/lib/content'
 
 interface PageProps {
   content: PageData
