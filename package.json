@@ -27,7 +27,7 @@
     "validate": "pnpm format:check && pnpm lint && pnpm type-check"
   },
   "dependencies": {
-    "dompurify": "3.4.11",
+    "dompurify": "3.4.12",
     "marked": "18.0.6",
     "next": "16.2.10",
     "react": "19.2.7",
