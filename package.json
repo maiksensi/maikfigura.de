@@ -30,8 +30,8 @@
     "dompurify": "3.4.12",
     "marked": "18.0.7",
     "next": "16.2.11",
-    "react": "19.2.7",
-    "react-dom": "19.2.7"
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.12.1",
