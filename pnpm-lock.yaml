@@ -65,7 +65,7 @@ importers:
         version: 4.1.10(vitest@4.1.10)
       autoprefixer:
         specifier: 10.5.4
-        version: 10.5.4(postcss@8.5.23)
+        version: 10.5.4(postcss@8.5.24)
       eslint:
         specifier: 10.8.0
         version: 10.8.0(jiti@2.7.0)
@@ -73,8 +73,8 @@ importers:
         specifier: 29.1.1
         version: 29.1.1
       postcss:
-        specifier: 8.5.23
-        version: 8.5.23
+        specifier: 8.5.24
+        version: 8.5.24
       tailwindcss:
         specifier: 4.3.3
         version: 4.3.3
@@ -1604,6 +1604,10 @@ packages:
     resolution: {integrity: sha512-g50586zr4bZmwFiTlflMu8E0bDTb5I5gertgwAKmsdUlTQIhZtunzUlD1WSzwcVWPoAVpsrA6vlfCD7oXvRwgg==}
     engines: {node: ^10 || ^12 || >=14}
 
+  postcss@8.5.24:
+    resolution: {integrity: sha512-8RyVklq0owXUTa4xlpzu4l9AaVKIdQvAcOHZWaMh98HgySsUtxRVf/chRe3dsSLqb6i40BzGRzEUddRaI+9TSw==}
+    engines: {node: ^10 || ^12 || >=14}
+
   prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
@@ -2456,7 +2460,7 @@ snapshots:
       '@alloc/quick-lru': 5.2.0
       '@tailwindcss/node': 4.3.3
       '@tailwindcss/oxide': 4.3.3
-      postcss: 8.5.23
+      postcss: 8.5.24
       tailwindcss: 4.3.3
 
   '@testing-library/dom@10.4.1':
@@ -2710,13 +2714,13 @@ snapshots:
 
   assertion-error@2.0.1: {}
 
-  autoprefixer@10.5.4(postcss@8.5.23):
+  autoprefixer@10.5.4(postcss@8.5.24):
     dependencies:
       browserslist: 4.28.6
       caniuse-lite: 1.0.30001806
       fraction.js: 5.3.4
       picocolors: 1.1.1
-      postcss: 8.5.23
+      postcss: 8.5.24
       postcss-value-parser: 4.2.0
 
   axe-core@4.12.1: {}
@@ -3191,6 +3195,12 @@ snapshots:
       source-map-js: 1.2.1
 
   postcss@8.5.23:
+    dependencies:
+      nanoid: 3.3.16
+      picocolors: 1.1.1
+      source-map-js: 1.2.1
+
+  postcss@8.5.24:
     dependencies:
       nanoid: 3.3.16
       picocolors: 1.1.1
