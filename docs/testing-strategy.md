@@ -59,7 +59,7 @@ pnpm dev          # Start development server with Turbopack
 pnpm build        # Production build and static generation check
 pnpm lint         # Run ESLint
 pnpm lint:fix     # Auto-fix ESLint issues
-pnpm format       # Format with Prettier
+pnpm format       # Format and sort imports with Biome
 pnpm type-check   # TypeScript type checking
 pnpm test         # Run unit tests with Vitest
 pnpm test:e2e     # Run Playwright E2E tests
