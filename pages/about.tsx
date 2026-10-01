@@ -51,7 +51,7 @@ export default function AboutPage({ aboutContent, workContent }: AboutPageProps)
             className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6 mb-16"
           >
             <li className="stat-card">
-              <span className="stat-card-value">10</span>
+              <span className="stat-card-value">10+</span>
               <span className="stat-card-label">Years Exp</span>
             </li>
             <li className="stat-card">
