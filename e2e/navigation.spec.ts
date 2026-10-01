@@ -14,6 +14,7 @@ test.describe('Navigation Flow', () => {
     await expect(page.getByText(/Hi! My name is Maik/i)).toBeVisible()
 
     // Check basic accessibility
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
     const accessibilityResults = await new AxeBuilder({ page }).analyze()
     expect(accessibilityResults.violations).toEqual([])
   })

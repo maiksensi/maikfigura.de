@@ -23,6 +23,7 @@ test.describe('About Page', () => {
   })
 
   test('should pass a11y', async ({ page }) => {
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
     const accessibilityScanResults = await new AxeBuilder({ page }).analyze()
     expect(accessibilityScanResults.violations).toEqual([])
   })
