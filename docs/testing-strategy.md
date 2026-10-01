@@ -87,13 +87,14 @@ The testing sensor is the observable evidence that a change works through its us
 - `/` redirects to `/about`.
 - Desktop navigation exposes all configured pages and marks the active page.
 - Mobile burger opens, closes, locks body scroll while open, moves focus into the menu, returns focus on Escape, and keeps link labels stable.
-- `/about` keeps the terminal visual contract: dark background, mono type, ASCII hero, stats, timeline cards, and no axe violations.
-- The hero ASCII stays contained on mobile widths instead of forcing the page wider than the viewport.
+- `/about` keeps the black and white noir comic contract: white background, black text, Comic Neue body, Bangers headline, comic panels, timeline cards, and no axe violations.
+- The hero and stat panels stay contained on mobile widths instead of forcing the page wider than the viewport.
 - Keyboard users can skip to the main content, and the closed mobile menu is `inert`, so its links are not in the tab order.
 
 ## Manual visual QA checklist
 
 - Open `/about` on desktop and mobile widths.
-- Confirm the ASCII hero, grid/scanline atmosphere, stat cards, timeline cards, nav hover states, and terminal footer feel cohesive.
+- Confirm the noir splash hero, speech bubble, starbursts, inverted stat panels, timeline panels, and nav hover and focus states feel cohesive, with no color anywhere.
+- Tab through the page and confirm the focus ring is visible on black and on white surfaces.
 - On mobile, confirm no horizontal page overflow and the burger menu remains usable.
 - Check reduced-motion settings when changing animations.

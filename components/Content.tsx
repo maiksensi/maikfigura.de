@@ -12,14 +12,12 @@ export function Content({ content }: ContentProps) {
     <main
       id="main"
       tabIndex={-1}
-      className="container pt-4 pl-4 pr-4 md:mx-auto xl:px-32 leading-loose text-[var(--color-fg)] bg-[var(--color-bg)] min-h-screen font-mono focus:outline-none"
+      className="comic-shell pt-4 px-4 pb-16 leading-relaxed text-[var(--color-fg)] bg-[var(--color-bg)] min-h-screen focus:outline-none"
     >
-      <div className="mt-16 max-w-[80%] mx-auto">
-        <h1 className="text-2xl font-bold mb-6 text-[var(--color-accent)]">
-          <span className="text-[var(--color-accent)]/50">&gt;</span> {content.document.title}
-        </h1>
+      <div className="mt-24 mx-auto max-w-4xl">
+        <h1 className="comic-heading text-4xl mb-8 md:text-5xl">{content.document.title}</h1>
         <div
-          className="adoc-content terminal-text"
+          className="adoc-content comic-panel p-5 text-lg md:p-8"
           dangerouslySetInnerHTML={{ __html: content.html }}
         />
       </div>

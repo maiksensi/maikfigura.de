@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #0f111a;
-  --color-fg: #d4d4d4;
-  --color-accent: #22c55e;
-  --color-card-bg: #161b22;
-  --color-card-border: #30363d;
-
-  --font-mono:
-    'JetBrains Mono', 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace;
+  --color-bg: #ffffff;
+  --color-fg: #000000;
+  --color-ink: #000000;
+  --color-paper: #ffffff;
+  --color-gray: #6b6b6b;
+  --color-gray-light: #d9d9d9;
+  --color-accent: #000000;
+  --color-card-bg: #ffffff;
+  --color-card-border: #000000;
 }
 
 @layer base {
   html {
-    @apply bg-[var(--color-bg)] text-[var(--color-fg)] font-mono antialiased;
+    @apply bg-[var(--color-bg)] text-[var(--color-fg)] antialiased;
   }
 
   body {
@@ -22,135 +22,306 @@
   }
 
   h2 {
-    @apply pt-4 text-xl font-bold text-[var(--color-accent)];
+    @apply pt-4 text-xl font-bold text-[var(--color-ink)];
   }
 
   ::selection {
-    @apply bg-[var(--color-accent)] text-black;
+    @apply bg-black text-white;
   }
 
+  /* Two-tone ring (black inside, white outside) stays visible on white and black surfaces. */
   :focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 3px;
+    outline: 3px solid #ffffff;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px #000000;
   }
 }
 
 @layer components {
+  /* Re-declared here because the next/font variables only exist on this wrapper, not on :root. */
+  .comic-fonts {
+    --font-comic:
+      var(--font-comic-body), 'Comic Neue', 'Comic Sans MS', 'Chalkboard SE', 'Trebuchet MS',
+      sans-serif;
+    --font-display: var(--font-comic-display), 'Bangers', Impact, 'Arial Black', sans-serif;
+    font-family: var(--font-comic);
+  }
+
   .skip-link {
     position: absolute;
     left: 1rem;
-    top: -4rem;
+    top: -5rem;
     z-index: 50;
     padding: 0.5rem 1rem;
-    background-color: var(--color-accent);
+    background-color: #ffffff;
     color: #000000;
-    font-weight: 700;
+    border: 3px solid #000000;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    letter-spacing: 0.05em;
   }
 
   .skip-link:focus {
     top: 0.75rem;
   }
 
-  .ambient-shell {
+  .comic-shell {
     background-color: var(--color-bg);
+    background-image: radial-gradient(rgb(0 0 0 / 0.09) 1.4px, transparent 1.6px);
+    background-size: 12px 12px;
+  }
+
+  .comic-display {
+    font-family: var(--font-display);
+    letter-spacing: 0.04em;
+    font-weight: 400;
+  }
+
+  .comic-panel {
+    background-color: var(--color-paper);
+    border: 4px solid var(--color-ink);
+    box-shadow: 8px 8px 0 var(--color-ink);
+  }
+
+  /* Noir splash panel: black page with slanted rain streaks. */
+  .comic-hero {
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+    background-color: #000000;
     background-image:
-      radial-gradient(circle at 15% 10%, rgb(34 197 94 / 0.12), transparent 24rem),
-      radial-gradient(circle at 85% 0%, rgb(212 212 212 / 0.06), transparent 20rem),
-      linear-gradient(rgb(34 197 94 / 0.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgb(34 197 94 / 0.04) 1px, transparent 1px);
-    background-size:
-      auto,
-      auto,
-      44px 44px,
-      44px 44px;
+      repeating-linear-gradient(
+        105deg,
+        transparent 0 22px,
+        rgb(255 255 255 / 0.07) 22px 23px,
+        transparent 23px 41px
+      ),
+      radial-gradient(ellipse at 85% 0%, rgb(255 255 255 / 0.22), transparent 55%);
   }
 
-  .ambient-shell::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    background: repeating-linear-gradient(
-      180deg,
-      rgb(212 212 212 / 0.035) 0,
-      rgb(212 212 212 / 0.035) 1px,
-      transparent 1px,
-      transparent 4px
-    );
-    mix-blend-mode: screen;
-    opacity: 0.38;
-  }
-
-  .terminal-panel {
-    @apply border border-[var(--color-card-border)] bg-[var(--color-card-bg)]/70 shadow-2xl shadow-black/30 backdrop-blur-sm;
-  }
-
-  .terminal-panel::before {
-    content: "maik.figura ~/about";
-    @apply block border-b border-[var(--color-card-border)] px-4 py-2 text-xs text-[var(--color-accent)]/80;
-    background: linear-gradient(90deg, rgb(34 197 94 / 0.1), transparent);
-  }
-
-  .hero-ascii {
+  .comic-title {
     display: block;
-    max-width: 100%;
-    overflow-x: auto;
-    padding-bottom: 0.25rem;
-    font-size: clamp(0.36rem, 1.65vw, 1rem);
-    scrollbar-width: thin;
-    animation: terminal-reveal 1.4s steps(34, end) both;
-    filter: drop-shadow(0 0 18px rgb(34 197 94 / 0.28));
+    font-family: var(--font-display);
+    font-size: clamp(3.4rem, 13vw, 9rem);
+    line-height: 0.9;
+    letter-spacing: 0.03em;
+    color: #ffffff;
+    text-shadow:
+      5px 5px 0 var(--color-gray),
+      9px 9px 0 rgb(255 255 255 / 0.25);
+    transform: rotate(-3deg) skewX(-6deg);
+    transform-origin: left center;
+    animation: comic-pop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
   }
 
-  .terminal-caret {
-    animation: terminal-blink 1s steps(2, start) infinite;
+  .comic-caption {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #000000;
+    border: 3px solid #000000;
+    box-shadow: 4px 4px 0 var(--color-gray);
+    padding: 0.35rem 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .speech-bubble {
+    position: relative;
+    background-color: #ffffff;
+    color: #000000;
+    border: 4px solid #000000;
+    border-radius: 2rem;
+    box-shadow: 6px 6px 0 var(--color-gray);
+    padding: 1.1rem 1.4rem;
+  }
+
+  .speech-bubble::before,
+  .speech-bubble::after {
+    content: "";
+    position: absolute;
+    left: 3rem;
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+
+  .speech-bubble::before {
+    bottom: -30px;
+    border-width: 30px 26px 0 0;
+    border-color: #000000 transparent transparent transparent;
+  }
+
+  .speech-bubble::after {
+    bottom: -20px;
+    left: calc(3rem + 5px);
+    border-width: 20px 17px 0 0;
+    border-color: #ffffff transparent transparent transparent;
+  }
+
+  /* clip-path would clip its own drop-shadow, so the wrapper carries the shadow. */
+  .comic-burst {
+    display: inline-block;
+    filter: drop-shadow(3px 0 0 #000000) drop-shadow(-3px 0 0 #000000) drop-shadow(0 3px 0 #000000)
+      drop-shadow(0 -3px 0 #000000) drop-shadow(6px 6px 0 var(--color-gray));
+    animation: comic-wiggle 2.6s ease-in-out 3;
+  }
+
+  .comic-burst > span {
+    display: grid;
+    place-items: center;
+    width: var(--burst-size, 9rem);
+    aspect-ratio: 1;
+    background-color: #ffffff;
+    color: #000000;
+    font-family: var(--font-display);
+    font-size: calc(var(--burst-size, 9rem) * 0.28);
+    letter-spacing: 0.04em;
+    clip-path: polygon(
+      50% 0%,
+      57.2% 13.7%,
+      69.1% 3.8%,
+      70.6% 19.2%,
+      85.4% 14.6%,
+      80.8% 29.4%,
+      96.2% 30.9%,
+      86.3% 42.8%,
+      100% 50%,
+      86.3% 57.2%,
+      96.2% 69.1%,
+      80.8% 70.6%,
+      85.4% 85.4%,
+      70.6% 80.8%,
+      69.1% 96.2%,
+      57.2% 86.3%,
+      50% 100%,
+      42.8% 86.3%,
+      30.9% 96.2%,
+      29.4% 80.8%,
+      14.6% 85.4%,
+      19.2% 70.6%,
+      3.8% 69.1%,
+      13.7% 57.2%,
+      0% 50%,
+      13.7% 42.8%,
+      3.8% 30.9%,
+      19.2% 29.4%,
+      14.6% 14.6%,
+      29.4% 19.2%,
+      30.9% 3.8%,
+      42.8% 13.7%
+    );
+  }
+
+  .comic-heading {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 0.2rem 1rem;
+    box-shadow: 5px 5px 0 var(--color-gray);
+    transform: rotate(-1.5deg);
   }
 
   .stat-card {
-    @apply flex min-h-28 flex-col justify-start px-4 pb-4 pt-5 md:min-h-32 md:px-5 md:pb-4 md:pt-7 xl:px-6;
+    @apply flex min-h-28 flex-col justify-start px-4 pb-4 pt-5 md:min-h-32 md:px-5 md:pb-4 md:pt-6 xl:px-6;
+    border: 4px solid #000000;
+    box-shadow: 6px 6px 0 var(--color-gray);
+    transition:
+      transform 150ms ease,
+      box-shadow 150ms ease;
+  }
+
+  .stat-card:nth-child(odd) {
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  .stat-card:nth-child(even) {
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  .stat-card:nth-child(1) {
+    transform: rotate(-2deg);
+  }
+
+  .stat-card:nth-child(2) {
+    transform: rotate(1.5deg);
+  }
+
+  .stat-card:nth-child(3) {
+    transform: rotate(-1deg);
+  }
+
+  .stat-card:nth-child(4) {
+    transform: rotate(2deg);
+  }
+
+  .stat-card:hover {
+    transform: rotate(0deg) scale(1.04);
+    box-shadow: 10px 10px 0 #000000;
   }
 
   .stat-card-value {
-    @apply text-[var(--color-accent)] font-bold leading-tight tracking-tight;
-    font-size: clamp(1.25rem, 1.85vw, 1.7rem);
+    font-family: var(--font-display);
+    letter-spacing: 0.04em;
+    line-height: 1;
+    font-size: clamp(1.15rem, 4.8vw, 1.6rem);
     text-wrap: balance;
+    hyphens: auto;
   }
 
-  @media (width >= 64rem) {
+  @media (width >= 48rem) {
     .stat-card-value {
-      letter-spacing: -0.035em;
+      font-size: clamp(1.4rem, 2.2vw, 2.2rem);
     }
   }
 
   .stat-card-label {
-    @apply mt-2 text-xs uppercase text-gray-400 sm:text-sm;
-    letter-spacing: 0.11em;
-  }
-
-  @media (width >= 40rem) {
-    .stat-card-label {
-      letter-spacing: 0.18em;
-    }
+    @apply mt-2 text-xs font-bold uppercase sm:text-sm;
+    letter-spacing: 0.1em;
   }
 
   .nav-link {
-    @apply relative inline-flex items-center no-underline transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)];
-  }
-
-  .nav-link::after {
-    content: "";
-    @apply absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-[var(--color-accent)] transition-transform duration-300;
-  }
-
-  .nav-link:hover::after,
-  .nav-link:focus-visible::after,
-  .nav-link[aria-current="page"]::after {
-    @apply scale-x-100;
+    @apply relative inline-flex items-center no-underline;
+    font-family: var(--font-display);
+    letter-spacing: 0.06em;
+    color: #ffffff;
+    padding: 0.1rem 0.75rem;
+    border: 3px solid transparent;
+    transition:
+      transform 120ms ease,
+      background-color 120ms ease;
   }
 
   .nav-link:hover {
-    text-shadow: 0 0 16px rgb(34 197 94 / 0.45);
+    border-color: #ffffff;
+    transform: rotate(-2deg) scale(1.05);
+  }
+
+  .nav-link[aria-current="page"] {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    box-shadow: 4px 4px 0 var(--color-gray);
+    transform: rotate(-3deg);
+  }
+
+  #mobile-menu .nav-link {
+    color: #000000;
+  }
+
+  #mobile-menu .nav-link:hover {
+    border-color: #000000;
+  }
+
+  #mobile-menu .nav-link[aria-current="page"] {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #000000;
   }
 
   .adoc-content ul {
@@ -158,67 +329,121 @@
   }
 
   .adoc-content li {
-    @apply relative pl-4 mb-2;
+    @apply relative pl-7 mb-3;
   }
 
   .adoc-content li::before {
-    content: ">";
-    @apply absolute left-0 text-[var(--color-accent)] font-bold;
+    content: "\2605";
+    @apply absolute left-0 font-bold;
+    color: #000000;
   }
 
   .adoc-content a {
-    @apply text-[var(--color-accent)] underline underline-offset-4 decoration-[var(--color-accent)]/30 hover:decoration-[var(--color-accent)];
+    @apply font-bold underline underline-offset-4;
+    color: #000000;
+    text-decoration-thickness: 3px;
+  }
+
+  .adoc-content a:hover {
+    background-color: #000000;
+    color: #ffffff;
   }
 
   .adoc-content p {
     @apply mb-4 leading-relaxed;
   }
 
+  .adoc-content > :first-child {
+    margin-top: 0;
+  }
+
+  .adoc-content h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    font-size: 1.75rem;
+    color: #000000;
+    margin-bottom: 0.5rem;
+  }
+
   .timeline-cards h2 {
-    @apply text-sm text-[var(--color-accent)]/80 mb-2 mt-6 pt-0 font-normal;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    margin: 1.75rem 0 -0.6rem 0.75rem;
+    padding: 0.1rem 0.75rem;
+    font-size: 1.25rem;
+    color: #ffffff;
+    background-color: #000000;
+    border: 3px solid #000000;
+    transform: rotate(-3deg);
   }
 
   .timeline-cards p {
-    @apply bg-[var(--color-card-bg)]/85 border border-[var(--color-card-border)] p-4 rounded-sm text-sm mb-0 relative transition-all duration-300;
+    @apply text-base mb-0 relative leading-relaxed;
+    background-color: #ffffff;
+    border: 4px solid #000000;
+    box-shadow: 6px 6px 0 var(--color-gray);
+    padding: 1.4rem 1rem 1rem;
+    transition:
+      transform 150ms ease,
+      box-shadow 150ms ease;
+  }
+
+  .timeline-cards p:nth-of-type(even) {
+    transform: rotate(0.6deg);
+  }
+
+  .timeline-cards p:nth-of-type(odd) {
+    transform: rotate(-0.6deg);
   }
 
   .timeline-cards p:hover {
-    @apply -translate-y-1 border-[var(--color-accent)]/50 shadow-lg shadow-[var(--color-accent)]/10;
-  }
-
-  .timeline-cards p::before {
-    content: "";
-    @apply absolute left-0 top-0 bottom-0 w-1 bg-[var(--color-accent)]/50;
+    transform: translate(-3px, -3px) rotate(0deg);
+    box-shadow: 10px 10px 0 #000000;
   }
 
   .timeline-cards p strong {
-    @apply inline text-[var(--color-fg)] font-bold;
+    @apply inline font-bold;
+    color: #000000;
   }
 
-  .terminal-text p {
-    @apply opacity-90;
+  .comic-button {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    background-color: #000000;
+    border: 4px solid #000000;
+    padding: 0.75rem 1.5rem;
+    box-shadow: 6px 6px 0 var(--color-gray);
+  }
+
+  .comic-button:hover {
+    background-color: #ffffff;
+    color: #000000;
   }
 }
 
-@keyframes terminal-reveal {
-  from {
-    clip-path: inset(0 100% 0 0);
-    opacity: 0.3;
-  }
-  to {
-    clip-path: inset(0 0 0 0);
-    opacity: 1;
-  }
-}
-
-@keyframes terminal-blink {
-  0%,
-  45% {
-    opacity: 1;
-  }
-  46%,
-  100% {
+@keyframes comic-pop {
+  0% {
     opacity: 0;
+    transform: rotate(-3deg) skewX(-6deg) scale(0.4);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-3deg) skewX(-6deg) scale(1);
+  }
+}
+
+@keyframes comic-wiggle {
+  0%,
+  100% {
+    transform: rotate(-6deg) scale(1);
+  }
+  50% {
+    transform: rotate(6deg) scale(1.06);
   }
 }
 
@@ -226,8 +451,7 @@
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
+    animation: none !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }

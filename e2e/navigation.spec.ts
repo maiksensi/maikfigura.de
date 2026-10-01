@@ -14,6 +14,7 @@ test.describe('Navigation Flow', () => {
     await expect(page.getByText(/Hi! My name is Maik/i)).toBeVisible()
 
     // Check basic accessibility
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
     const accessibilityResults = await new AxeBuilder({ page }).analyze()
     expect(accessibilityResults.violations).toEqual([])
   })
@@ -85,6 +86,15 @@ test.describe('Navigation Flow', () => {
       expect(insideMenu).toBe(false)
     }
   })
+
+  for (const path of ['/appearances', '/contact', '/privacy', '/does-not-exist']) {
+    test(`${path} passes a11y`, async ({ page }) => {
+      await page.goto(path)
+      await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+      const results = await new AxeBuilder({ page }).analyze()
+      expect(results.violations).toEqual([])
+    })
+  }
 
   test('open mobile menu passes a11y', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 })

@@ -29,8 +29,8 @@ export default function Document() {
         <link rel="shortcut icon" href="/favicon.ico?v=20260511-large-mf" />
 
         {/* App meta */}
-        <meta name="theme-color" content="#0f111a" />
-        <meta name="msapplication-TileColor" content="#0f111a" />
+        <meta name="theme-color" content="#000000" />
+        <meta name="msapplication-TileColor" content="#000000" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />

@@ -28,19 +28,15 @@ const NavigationLink = ({ href, children, onClick, isActive = false }: Navigatio
   <Link
     href={href}
     onClick={onClick}
-    className={`
-      nav-link text-[var(--color-fg)] hover:text-[var(--color-accent)]
-      ${isActive ? 'text-[var(--color-accent)] font-bold' : 'opacity-80'}
-    `}
+    className="nav-link"
     aria-current={isActive ? 'page' : undefined}
   >
-    {isActive ? '> ' : ''}
     {children}
   </Link>
 )
 
 const BurgerButton = ({ isOpen, onClick, buttonRef }: BurgerButtonProps) => {
-  const barBaseClasses = 'w-6 h-0.5 bg-[var(--color-accent)] rounded transition-all duration-300'
+  const barBaseClasses = 'w-7 h-1 bg-black transition-all duration-300'
 
   return (
     <button
@@ -49,7 +45,7 @@ const BurgerButton = ({ isOpen, onClick, buttonRef }: BurgerButtonProps) => {
       aria-controls={MOBILE_MENU_ID}
       ref={buttonRef}
       onClick={onClick}
-      className="h-8 w-8 flex flex-col justify-center items-center gap-1 sm:hidden mr-5 z-20 relative focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+      className="h-11 w-11 flex flex-col justify-center items-center gap-1 sm:hidden mr-1 z-20 relative border-[3px] border-white bg-white shadow-[3px_3px_0_#6b6b6b]"
     >
       {/* Top bar - rotates to form top part of X */}
       <div
@@ -127,17 +123,19 @@ export default function Navigation() {
       </a>
       {/* Main Navigation Header */}
       <header
-        className={`flex justify-end items-center sm:justify-center bg-[var(--color-bg)]/90 backdrop-blur-sm border-b border-[var(--color-card-border)] ${NAV_HEIGHT} w-full fixed top-0 ${NAV_Z_INDEX}`}
+        className={`flex justify-end items-center sm:justify-center bg-black border-b-4 border-black ${NAV_HEIGHT} w-full fixed top-0 ${NAV_Z_INDEX}`}
       >
         <nav
           aria-label="Main navigation"
           className="flex items-center w-full justify-between sm:justify-center px-4"
         >
-          <div className="sm:hidden text-[var(--color-accent)] font-bold pl-2">maik.figura ~/</div>
+          <div className="comic-display sm:hidden text-2xl text-white pl-1 -rotate-2">
+            Maik Figura!
+          </div>
           {/* Desktop Navigation */}
           <ul className="hidden sm:flex sm:flex-row">
             {navPages.map((page) => (
-              <li key={page} className="mx-4 text-xl">
+              <li key={page} className="mx-2 text-2xl">
                 <NavigationLink href={`/${page}`} isActive={isActivePage(page)}>
                   {page}
                 </NavigationLink>
@@ -157,7 +155,7 @@ export default function Navigation() {
         aria-label="Mobile navigation menu"
         inert={!isOpen}
         className={`
-          fixed top-16 left-0 right-0 bottom-0 bg-[var(--color-bg)] ${OVERLAY_Z_INDEX} sm:hidden
+          fixed top-16 left-0 right-0 bottom-0 comic-shell ${OVERLAY_Z_INDEX} sm:hidden
           transition-transform ${TRANSITION_DURATION}
           ${isOpen ? 'transform translate-x-0' : 'transform translate-x-full'}
         `}
@@ -168,7 +166,7 @@ export default function Navigation() {
           onClick={(e) => e.stopPropagation()} // Prevent closing when clicking nav content
         >
           {navPages.map((page) => (
-            <li key={page} className="text-2xl mb-8">
+            <li key={page} className="text-4xl mb-8">
               <NavigationLink href={`/${page}`} onClick={closeMenu} isActive={isActivePage(page)}>
                 {page}
               </NavigationLink>

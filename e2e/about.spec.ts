@@ -6,20 +6,27 @@ test.describe('About Page', () => {
     await page.goto('/about')
   })
 
-  test('should render dark theme and terminal aesthetic', async ({ page }) => {
+  test('should render the black and white noir comic aesthetic', async ({ page }) => {
     const main = page.locator('main')
 
-    await expect(main).toHaveCSS('font-family', /JetBrains Mono|Geist Mono|ui-monospace|monospace/)
-    await expect(main).toHaveCSS('background-color', 'rgb(15, 17, 26)')
-    await expect(main).toHaveCSS('color', 'rgb(212, 212, 212)')
+    await expect(main).toHaveCSS('font-family', /Comic Neue|Comic Sans MS/)
+    await expect(main).toHaveCSS('background-color', 'rgb(255, 255, 255)')
+    await expect(main).toHaveCSS('color', 'rgb(0, 0, 0)')
 
-    const pre = page.locator('pre[aria-hidden="true"]')
-    await expect(pre).toBeVisible()
-    await expect(pre).toContainText('__')
+    const title = page.getByRole('heading', { level: 1, name: /Maik Figura/i })
+    await expect(title).toBeVisible()
+    await expect(title).toHaveCSS('font-family', /Bangers/)
 
     const timeline = page.locator('.timeline-cards')
     await expect(timeline).toBeVisible()
     await expect(timeline.locator('p').first()).toBeVisible()
+  })
+
+  test('should not overflow the viewport horizontally', async ({ page }) => {
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - document.documentElement.clientWidth
+    )
+    expect(overflow).toBeLessThanOrEqual(0)
   })
 
   test('skip link moves keyboard focus to the main content', async ({ page }) => {

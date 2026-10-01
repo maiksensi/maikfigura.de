@@ -24,52 +24,45 @@ export default function AboutPage({ aboutContent, workContent }: AboutPageProps)
       <main
         id="main"
         tabIndex={-1}
-        className="ambient-shell relative isolate min-h-screen overflow-hidden pt-4 pl-4 pr-4 leading-loose text-[var(--color-fg)] bg-[var(--color-bg)] font-mono focus:outline-none"
+        className="comic-shell relative isolate min-h-screen overflow-hidden pt-4 pl-4 pr-4 pb-8 leading-relaxed text-[var(--color-fg)] bg-[var(--color-bg)] focus:outline-none"
       >
-        <h1 className="sr-only">About Maik Figura</h1>
-        <div className="relative z-10 mt-16 mx-auto max-w-6xl px-0 md:px-8 xl:px-16">
-          <section className="terminal-panel mb-12 overflow-hidden rounded-sm">
-            <div className="px-4 py-8 md:px-8 md:py-10">
-              <p className="mb-4 text-xs uppercase tracking-[0.35em] text-[var(--color-accent)]/70">
-                system architect / resilient software / human-centered craft
-              </p>
-              <pre
-                aria-hidden="true"
-                className="hero-ascii max-w-full text-[var(--color-accent)] leading-none overflow-x-auto whitespace-pre"
-              >
-                {`
- __  __    _    ___ _  __   _____ ___  ____ _   _ ____      _    
-|  \\/  |  / \\  |_ _| |/ /  |  ___|_ _|/ ___| | | |  _ \\    / \\   
-| |\\/| | / _ \\  | || ' /   | |_   | || |  _| | | | |_) |  / _ \\  
-| |  | |/ ___ \\ | || . \\   |  _|  | || |_| | |_| |  _ <  / ___ \\ 
-|_|  |_/_/   \\_\\___|_|\\_\\  |_|   |___|\\____|\\___/|_| \\_\\/_/   \\_\\
-`}
-              </pre>
-              <p className="mt-6 max-w-3xl text-sm text-[var(--color-fg)]/75 md:text-base">
-                maik@figura:~$ building resilient systems with domain language, observability, and a
-                bias for useful software{' '}
-                <span className="terminal-caret text-[var(--color-accent)]">_</span>
-              </p>
-            </div>
+        <div className="relative z-10 mt-20 mx-auto max-w-6xl px-0 md:px-8 xl:px-16">
+          <section className="comic-panel comic-hero mb-14 px-4 pt-6 pb-12 md:px-10 md:pt-8 md:pb-14">
+            <p className="comic-caption mb-6 text-xs md:text-sm -rotate-1">
+              Issue #1 &middot; System architect / resilient software / human-centered craft
+            </p>
+            <h1 className="comic-title mb-10 md:mb-12">
+              <span className="sr-only">About </span>Maik Figura
+            </h1>
+            <p className="speech-bubble max-w-2xl text-base font-bold md:text-xl">
+              Building resilient systems with domain language, observability, and a bias for useful
+              software!
+            </p>
+            <span
+              aria-hidden="true"
+              className="comic-burst absolute right-3 top-3 hidden sm:inline-block md:right-8 md:top-6"
+            >
+              <span>POW!</span>
+            </span>
           </section>
 
           <ul
             aria-label="Highlights"
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16 border-t border-b border-[var(--color-accent)]/30 py-8"
+            className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6 mb-16"
           >
-            <li className="stat-card terminal-panel rounded-sm transition-transform duration-300 hover:-translate-y-1">
+            <li className="stat-card">
               <span className="stat-card-value">10</span>
               <span className="stat-card-label">Years Exp</span>
             </li>
-            <li className="stat-card terminal-panel rounded-sm transition-transform duration-300 hover:-translate-y-1">
+            <li className="stat-card">
               <span className="stat-card-value">People</span>
               <span className="stat-card-label">Before systems</span>
             </li>
-            <li className="stat-card terminal-panel rounded-sm transition-transform duration-300 hover:-translate-y-1">
+            <li className="stat-card">
               <span className="stat-card-value">Resilience</span>
               <span className="stat-card-label">By design</span>
             </li>
-            <li className="stat-card terminal-panel rounded-sm transition-transform duration-300 hover:-translate-y-1">
+            <li className="stat-card">
               <span className="stat-card-value">Collaboration</span>
               <span className="stat-card-label">Before Processes</span>
             </li>
@@ -77,34 +70,21 @@ export default function AboutPage({ aboutContent, workContent }: AboutPageProps)
 
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-2xl font-bold mb-6 text-[var(--color-accent)]">
-                <span className="text-[var(--color-accent)]/50">&gt;</span> whoami
-              </h2>
+              <h2 className="comic-heading text-3xl mb-8">Origin story</h2>
               <div
-                className="adoc-content terminal-text"
+                className="adoc-content comic-panel p-5 text-lg md:p-6"
                 dangerouslySetInnerHTML={{ __html: aboutContent.html }}
               />
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold mb-6 text-[var(--color-accent)]">
-                <span className="text-[var(--color-accent)]/50">&gt;</span> cat experience.log
-              </h2>
-              <div className="space-y-6">
-                <div
-                  className="adoc-content timeline-cards"
-                  dangerouslySetInnerHTML={{ __html: workContent.html }}
-                />
-              </div>
+              <h2 className="comic-heading text-3xl mb-4">The adventures so far</h2>
+              <div
+                className="adoc-content timeline-cards"
+                dangerouslySetInnerHTML={{ __html: workContent.html }}
+              />
             </div>
           </div>
-
-          <footer className="mt-16 border-t border-[var(--color-card-border)] py-8 text-sm text-[var(--color-fg)]/70">
-            <p>
-              maik@figura:~$ open collaboration.log{' '}
-              <span className="terminal-caret text-[var(--color-accent)]">_</span>
-            </p>
-          </footer>
         </div>
       </main>
     </>
