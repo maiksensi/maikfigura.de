@@ -45,10 +45,13 @@ test.describe('Navigation Flow', () => {
     const overlay = page.locator('[role="dialog"][aria-modal="true"]')
     await expect(overlay).toBeVisible()
 
-    // Navigate to work page via mobile nav
-    await page.getByLabel('Mobile navigation menu').getByRole('link', { name: /work/i }).click()
-    await expect(page).toHaveURL(/.*\/work\/?$/)
-    await expect(page.getByRole('heading', { name: /work/i })).toBeVisible()
+    // Navigate to privacy page via mobile nav
+    await page
+      .getByLabel('Mobile navigation menu')
+      .getByRole('link', { name: /privacy/i })
+      .click()
+    await expect(page).toHaveURL(/.*\/privacy\/?$/)
+    await expect(page.getByRole('heading', { name: /privacy/i, level: 1 })).toBeVisible()
 
     // Navigation should be closed after navigation
     await expect(burgerButton).toBeVisible()

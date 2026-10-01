@@ -50,14 +50,13 @@ describe('Navigation Component', () => {
     const aboutLinks = screen.getAllByRole('link', { name: /about/i })
     const appearanceLinks = screen.getAllByRole('link', { name: /appearances/i })
     const contactLinks = screen.getAllByRole('link', { name: /contact/i })
-    const workLinks = screen.getAllByRole('link', { name: /work/i })
     const privacyLinks = screen.getAllByRole('link', { name: /privacy/i })
 
     expect(aboutLinks).toHaveLength(2) // Desktop and mobile
     expect(appearanceLinks).toHaveLength(2)
     expect(contactLinks).toHaveLength(2)
-    expect(workLinks).toHaveLength(2)
     expect(privacyLinks).toHaveLength(2)
+    expect(screen.queryByRole('link', { name: /work/i })).not.toBeInTheDocument()
   })
 
   it('renders correct href attributes', () => {
@@ -65,12 +64,12 @@ describe('Navigation Component', () => {
 
     const aboutLinks = screen.getAllByRole('link', { name: /about/i })
     const contactLinks = screen.getAllByRole('link', { name: /contact/i })
-    const workLinks = screen.getAllByRole('link', { name: /work/i })
+    const privacyLinks = screen.getAllByRole('link', { name: /privacy/i })
 
     // Check both desktop and mobile versions have correct hrefs
     aboutLinks.forEach((link) => expect(link).toHaveAttribute('href', '/about'))
     contactLinks.forEach((link) => expect(link).toHaveAttribute('href', '/contact'))
-    workLinks.forEach((link) => expect(link).toHaveAttribute('href', '/work'))
+    privacyLinks.forEach((link) => expect(link).toHaveAttribute('href', '/privacy'))
   })
 
   it('has burger button for mobile navigation', () => {

@@ -26,8 +26,11 @@ export default function Page({ content }: PageProps) {
   )
 }
 
+// about renders its own page; work.md only feeds the timeline on /about.
+const SLUGS_WITHOUT_ROUTE = ['about', 'work']
+
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs = getAllPageSlugs().filter((slug) => slug !== 'about')
+  const slugs = getAllPageSlugs().filter((slug) => !SLUGS_WITHOUT_ROUTE.includes(slug))
 
   return {
     paths: slugs.map((slug) => ({

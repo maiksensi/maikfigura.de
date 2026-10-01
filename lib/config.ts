@@ -12,7 +12,7 @@ interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  navPages: ['about', 'appearances', 'contact', 'work', 'privacy'],
+  navPages: ['about', 'appearances', 'contact', 'privacy'],
   headerMetadata: {
     siteUrl: 'https://www.maikfigura.de',
     lang: 'en',
