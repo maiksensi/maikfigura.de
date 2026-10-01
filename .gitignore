@@ -30,6 +30,7 @@ docs/*
 !docs/git-safety.md
 !docs/testing-strategy.md
 !docs/dependency-management.md
+!docs/adr/
 
 # ohmyopencode
 .sisyphus/

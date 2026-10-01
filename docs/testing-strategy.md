@@ -87,7 +87,7 @@ The testing sensor is the observable evidence that a change works through its us
 - `/` redirects to `/about`.
 - Desktop navigation exposes all configured pages and marks the active page.
 - Mobile burger opens, closes, locks body scroll while open, moves focus into the menu, returns focus on Escape, and keeps link labels stable.
-- `/about` keeps the black and white noir comic contract: white background, black text, Comic Neue body, Bangers headline, comic panels, timeline cards, and no axe violations.
+- `/about` keeps the black and white noir comic contract (see `docs/adr/0005-noir-comic-design.md`): white background, black text, Comic Neue body, Bangers headline, comic panels, timeline cards, and no axe violations.
 - The hero and stat panels stay contained on mobile widths instead of forcing the page wider than the viewport.
 - Keyboard users can skip to the main content, and the closed mobile menu is `inert`, so its links are not in the tab order.
 
