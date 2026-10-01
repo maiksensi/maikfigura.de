@@ -48,7 +48,7 @@ const BurgerButton = ({ isOpen, onClick }: BurgerButtonProps) => {
     >
       {/* Top bar - rotates to form top part of X */}
       <div
-        className={`${barBaseClasses} origin-center ${isOpen ? 'rotate-45 translate-y-1.5' : ''}`}
+        className={`${barBaseClasses} origin-center ${isOpen ? 'translate-y-2 rotate-45' : ''}`}
         aria-hidden="true"
       />
       {/* Middle bar - slides left and fades out */}
@@ -60,7 +60,7 @@ const BurgerButton = ({ isOpen, onClick }: BurgerButtonProps) => {
       />
       {/* Bottom bar - rotates to form bottom part of X */}
       <div
-        className={`${barBaseClasses} origin-center ${isOpen ? '-rotate-45 -translate-y-1.5' : ''}`}
+        className={`${barBaseClasses} origin-center ${isOpen ? '-translate-y-2 -rotate-45' : ''}`}
         aria-hidden="true"
       />
     </button>
