@@ -14,7 +14,6 @@ test.describe('Navigation Flow', () => {
     await expect(page.getByText(/Hi! My name is Maik/i)).toBeVisible()
 
     // Check basic accessibility
-    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
     const accessibilityResults = await new AxeBuilder({ page }).analyze()
     expect(accessibilityResults.violations).toEqual([])
   })
@@ -25,7 +24,7 @@ test.describe('Navigation Flow', () => {
 
     // Navigate to contact page via desktop nav
     await page
-      .getByRole('list')
+      .getByLabel('Main navigation')
       .getByRole('link', { name: /contact/i })
       .click()
     await expect(page).toHaveURL(/.*\/contact\/?$/)
@@ -42,8 +41,9 @@ test.describe('Navigation Flow', () => {
     await burgerButton.click()
 
     // Check overlay is visible
-    const overlay = page.locator('[role="dialog"][aria-modal="true"]')
+    const overlay = page.getByRole('navigation', { name: 'Mobile navigation menu' })
     await expect(overlay).toBeVisible()
+    await expect(overlay.getByRole('link').first()).toBeFocused()
 
     // Navigate to privacy page via mobile nav
     await page
@@ -73,5 +73,25 @@ test.describe('Navigation Flow', () => {
 
     // Should return to burger state
     await expect(page.locator('nav button[aria-label*="Open navigation"]')).toBeVisible()
+  })
+
+  test('closed mobile menu links are not keyboard reachable', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 })
+    for (let i = 0; i < 6; i++) {
+      await page.keyboard.press('Tab')
+      const insideMenu = await page.evaluate(
+        () => document.activeElement?.closest('#mobile-menu') !== null
+      )
+      expect(insideMenu).toBe(false)
+    }
+  })
+
+  test('open mobile menu passes a11y', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 })
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+    await page.locator('nav button[aria-label*="Open navigation"]').click()
+    await expect(page.getByRole('navigation', { name: 'Mobile navigation menu' })).toBeVisible()
+    const results = await new AxeBuilder({ page }).analyze()
+    expect(results.violations).toEqual([])
   })
 })

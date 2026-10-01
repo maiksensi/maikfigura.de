@@ -22,6 +22,17 @@ test.describe('About Page', () => {
     await expect(timeline.locator('p').first()).toBeVisible()
   })
 
+  test('skip link moves keyboard focus to the main content', async ({ page }) => {
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+    await page.keyboard.press('Tab')
+    const skipLink = page.getByRole('link', { name: /skip to content/i })
+    await expect(skipLink).toBeFocused()
+    await expect(skipLink).toBeInViewport()
+
+    await page.keyboard.press('Enter')
+    await expect(page.locator('main')).toBeFocused()
+  })
+
   test('should pass a11y', async ({ page }) => {
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
     const accessibilityScanResults = await new AxeBuilder({ page }).analyze()

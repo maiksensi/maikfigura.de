@@ -10,8 +10,9 @@ interface ContentProps {
 export function Content({ content }: ContentProps) {
   return (
     <main
-      role="main"
-      className="container pt-4 pl-4 pr-4 md:mx-auto xl:px-32 leading-loose text-[var(--color-fg)] bg-[var(--color-bg)] min-h-screen font-mono"
+      id="main"
+      tabIndex={-1}
+      className="container pt-4 pl-4 pr-4 md:mx-auto xl:px-32 leading-loose text-[var(--color-fg)] bg-[var(--color-bg)] min-h-screen font-mono focus:outline-none"
     >
       <div className="mt-16 max-w-[80%] mx-auto">
         <h1 className="text-2xl font-bold mb-6 text-[var(--color-accent)]">

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { ReactNode, useCallback, useEffect, useState } from 'react'
+import { ReactNode, Ref, useCallback, useEffect, useRef, useState } from 'react'
 import { siteConfig } from '@/lib/config'
 
 // Constants for better maintainability
@@ -19,7 +19,10 @@ interface NavigationLinkProps {
 interface BurgerButtonProps {
   isOpen: boolean
   onClick: () => void
+  buttonRef: Ref<HTMLButtonElement>
 }
+
+const MOBILE_MENU_ID = 'mobile-menu'
 
 const NavigationLink = ({ href, children, onClick, isActive = false }: NavigationLinkProps) => (
   <Link
@@ -36,13 +39,15 @@ const NavigationLink = ({ href, children, onClick, isActive = false }: Navigatio
   </Link>
 )
 
-const BurgerButton = ({ isOpen, onClick }: BurgerButtonProps) => {
+const BurgerButton = ({ isOpen, onClick, buttonRef }: BurgerButtonProps) => {
   const barBaseClasses = 'w-6 h-0.5 bg-[var(--color-accent)] rounded transition-all duration-300'
 
   return (
     <button
       aria-label={isOpen ? 'Close navigation' : 'Open navigation'}
       aria-expanded={isOpen}
+      aria-controls={MOBILE_MENU_ID}
+      ref={buttonRef}
       onClick={onClick}
       className="h-8 w-8 flex flex-col justify-center items-center gap-1 sm:hidden mr-5 z-20 relative focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
     >
@@ -71,6 +76,8 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
   const { navPages } = siteConfig
+  const burgerRef = useRef<HTMLButtonElement>(null)
+  const menuRef = useRef<HTMLElement>(null)
 
   // Memoize functions for better performance
   const closeMenu = useCallback(() => setIsOpen(false), [])
@@ -91,11 +98,19 @@ export default function Navigation() {
     }
   }, [isOpen])
 
-  // Close menu on escape key
+  // Move focus into the menu when it opens
+  useEffect(() => {
+    if (isOpen) {
+      menuRef.current?.querySelector('a')?.focus()
+    }
+  }, [isOpen])
+
+  // Close menu on escape key and return focus to the burger button
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape' && isOpen) {
         closeMenu()
+        burgerRef.current?.focus()
       }
     }
 
@@ -107,6 +122,9 @@ export default function Navigation() {
 
   return (
     <>
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
       {/* Main Navigation Header */}
       <header
         className={`flex justify-end items-center sm:justify-center bg-[var(--color-bg)]/90 backdrop-blur-sm border-b border-[var(--color-card-border)] ${NAV_HEIGHT} w-full fixed top-0 ${NAV_Z_INDEX}`}
@@ -128,36 +146,36 @@ export default function Navigation() {
           </ul>
 
           {/* Mobile Burger Button */}
-          <BurgerButton isOpen={isOpen} onClick={toggleMenu} />
+          <BurgerButton isOpen={isOpen} onClick={toggleMenu} buttonRef={burgerRef} />
         </nav>
       </header>
 
-      {/* Mobile Navigation Overlay */}
-      <div
+      {/* Mobile Navigation Overlay: inert while closed so its links leave the tab order */}
+      <nav
+        id={MOBILE_MENU_ID}
+        ref={menuRef}
+        aria-label="Mobile navigation menu"
+        inert={!isOpen}
         className={`
-          fixed top-16 left-0 right-0 bottom-0 bg-[var(--color-bg)] ${OVERLAY_Z_INDEX} sm:hidden 
+          fixed top-16 left-0 right-0 bottom-0 bg-[var(--color-bg)] ${OVERLAY_Z_INDEX} sm:hidden
           transition-transform ${TRANSITION_DURATION}
           ${isOpen ? 'transform translate-x-0' : 'transform translate-x-full'}
         `}
-        role="dialog"
-        aria-modal="true"
-        aria-label="Mobile navigation menu"
         onClick={closeMenu} // Close on backdrop click
       >
-        <nav
-          className="flex flex-col justify-center items-center h-full"
-          aria-label="Mobile navigation"
+        <ul
+          className="relative z-10 flex flex-col justify-center items-center h-full"
           onClick={(e) => e.stopPropagation()} // Prevent closing when clicking nav content
         >
           {navPages.map((page) => (
-            <div key={page} className="text-2xl mb-8">
+            <li key={page} className="text-2xl mb-8">
               <NavigationLink href={`/${page}`} onClick={closeMenu} isActive={isActivePage(page)}>
                 {page}
               </NavigationLink>
-            </div>
+            </li>
           ))}
-        </nav>
-      </div>
+        </ul>
+      </nav>
     </>
   )
 }

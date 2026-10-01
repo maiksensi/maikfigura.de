@@ -28,9 +28,29 @@
   ::selection {
     @apply bg-[var(--color-accent)] text-black;
   }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
 }
 
 @layer components {
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 50;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-accent);
+    color: #000000;
+    font-weight: 700;
+  }
+
+  .skip-link:focus {
+    top: 0.75rem;
+  }
+
   .ambient-shell {
     background-color: var(--color-bg);
     background-image:

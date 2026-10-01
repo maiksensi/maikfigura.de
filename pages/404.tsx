@@ -7,7 +7,11 @@ export default function Custom404() {
     <>
       <SEO title="Page Not Found" />
       <Navigation />
-      <main className="container pt-4 px-4 md:mx-auto xl:px-32 leading-loose">
+      <main
+        id="main"
+        tabIndex={-1}
+        className="container pt-4 px-4 md:mx-auto xl:px-32 leading-loose focus:outline-none"
+      >
         <div className="mt-16 text-center">
           <h1 className="text-4xl font-bold mb-6">404 - Page Not Found</h1>
           <p className="text-lg text-gray-600 mb-8">

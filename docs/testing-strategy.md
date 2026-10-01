@@ -86,9 +86,10 @@ The testing sensor is the observable evidence that a change works through its us
 
 - `/` redirects to `/about`.
 - Desktop navigation exposes all configured pages and marks the active page.
-- Mobile burger opens, closes, traps no scroll on body, and keeps link labels stable.
+- Mobile burger opens, closes, locks body scroll while open, moves focus into the menu, returns focus on Escape, and keeps link labels stable.
 - `/about` keeps the terminal visual contract: dark background, mono type, ASCII hero, stats, timeline cards, and no axe violations.
 - The hero ASCII stays contained on mobile widths instead of forcing the page wider than the viewport.
+- Keyboard users can skip to the main content, and the closed mobile menu is `inert`, so its links are not in the tab order.
 
 ## Manual visual QA checklist
 

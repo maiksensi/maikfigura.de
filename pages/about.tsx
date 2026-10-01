@@ -22,8 +22,9 @@ export default function AboutPage({ aboutContent, workContent }: AboutPageProps)
       />
       <Navigation />
       <main
-        role="main"
-        className="ambient-shell relative isolate min-h-screen overflow-hidden pt-4 pl-4 pr-4 leading-loose text-[var(--color-fg)] bg-[var(--color-bg)] font-mono"
+        id="main"
+        tabIndex={-1}
+        className="ambient-shell relative isolate min-h-screen overflow-hidden pt-4 pl-4 pr-4 leading-loose text-[var(--color-fg)] bg-[var(--color-bg)] font-mono focus:outline-none"
       >
         <h1 className="sr-only">About Maik Figura</h1>
         <div className="relative z-10 mt-16 mx-auto max-w-6xl px-0 md:px-8 xl:px-16">
@@ -52,24 +53,27 @@ export default function AboutPage({ aboutContent, workContent }: AboutPageProps)
             </div>
           </section>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16 border-t border-b border-[var(--color-accent)]/30 py-8">
-            <div className="stat-card terminal-panel rounded-sm transition-transform duration-300 hover:-translate-y-1">
-              <div className="stat-card-value">10</div>
-              <div className="stat-card-label">Years Exp</div>
-            </div>
-            <div className="stat-card terminal-panel rounded-sm transition-transform duration-300 hover:-translate-y-1">
-              <div className="stat-card-value">People</div>
-              <div className="stat-card-label">Before systems</div>
-            </div>
-            <div className="stat-card terminal-panel rounded-sm transition-transform duration-300 hover:-translate-y-1">
-              <div className="stat-card-value">Resilience</div>
-              <div className="stat-card-label">By design</div>
-            </div>
-            <div className="stat-card terminal-panel rounded-sm transition-transform duration-300 hover:-translate-y-1">
-              <div className="stat-card-value">Collaboration</div>
-              <div className="stat-card-label">Before Processes</div>
-            </div>
-          </div>
+          <ul
+            aria-label="Highlights"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16 border-t border-b border-[var(--color-accent)]/30 py-8"
+          >
+            <li className="stat-card terminal-panel rounded-sm transition-transform duration-300 hover:-translate-y-1">
+              <span className="stat-card-value">10</span>
+              <span className="stat-card-label">Years Exp</span>
+            </li>
+            <li className="stat-card terminal-panel rounded-sm transition-transform duration-300 hover:-translate-y-1">
+              <span className="stat-card-value">People</span>
+              <span className="stat-card-label">Before systems</span>
+            </li>
+            <li className="stat-card terminal-panel rounded-sm transition-transform duration-300 hover:-translate-y-1">
+              <span className="stat-card-value">Resilience</span>
+              <span className="stat-card-label">By design</span>
+            </li>
+            <li className="stat-card terminal-panel rounded-sm transition-transform duration-300 hover:-translate-y-1">
+              <span className="stat-card-value">Collaboration</span>
+              <span className="stat-card-label">Before Processes</span>
+            </li>
+          </ul>
 
           <div className="grid md:grid-cols-2 gap-12">
             <div>

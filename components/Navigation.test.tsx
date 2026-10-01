@@ -88,7 +88,7 @@ describe('Navigation Component', () => {
     await user.click(burgerButton)
 
     // Check that mobile overlay is visible (has transform translate-x-0)
-    const overlay = screen.getByRole('dialog')
+    const overlay = screen.getByLabelText('Mobile navigation menu')
     expect(overlay).toHaveClass('transform', 'translate-x-0')
 
     // Check aria-label changes
@@ -108,7 +108,7 @@ describe('Navigation Component', () => {
     await user.click(closeButton)
 
     // Check that overlay is hidden (has transform translate-x-full)
-    const overlay = screen.getByRole('dialog')
+    const overlay = screen.getByLabelText('Mobile navigation menu')
     expect(overlay).toHaveClass('transform', 'translate-x-full')
 
     // Check aria-label changes back
@@ -144,23 +144,48 @@ describe('Navigation Component', () => {
 
     // Click a navigation link in the mobile menu
     const mobileLinks = screen.getAllByRole('link', { name: /contact/i })
-    const mobileContactLink = mobileLinks.find((link) => link.closest('[role="dialog"]'))
+    const mobileContactLink = mobileLinks.find((link) => link.closest('#mobile-menu'))
 
     await user.click(mobileContactLink!)
 
     // Check that overlay is hidden
-    const overlay = screen.getByRole('dialog')
+    const overlay = screen.getByLabelText('Mobile navigation menu')
     expect(overlay).toHaveClass('transform', 'translate-x-full')
   })
 
-  it('has proper accessibility attributes', () => {
+  it('keeps the closed mobile menu out of the tab order', async () => {
+    const user = userEvent.setup()
     render(<Navigation />)
 
-    const overlay = screen.getByRole('dialog')
-    expect(overlay).toHaveAttribute('aria-modal', 'true')
-    expect(overlay).toHaveAttribute('aria-label', 'Mobile navigation menu')
+    const overlay = screen.getByLabelText('Mobile navigation menu')
+    const burgerButton = screen.getByRole('button', { name: /open navigation/i })
 
-    const mobileNav = screen.getByLabelText('Mobile navigation')
-    expect(mobileNav).toBeInTheDocument()
+    expect(overlay.tagName).toBe('NAV')
+    expect(burgerButton).toHaveAttribute('aria-controls', overlay.id)
+    expect(overlay).toHaveAttribute('inert')
+
+    await user.click(burgerButton)
+    expect(overlay).not.toHaveAttribute('inert')
+  })
+
+  it('moves focus into the menu on open and back to the button on Escape', async () => {
+    const user = userEvent.setup()
+    render(<Navigation />)
+
+    const burgerButton = screen.getByRole('button', { name: /open navigation/i })
+    await user.click(burgerButton)
+
+    const overlay = screen.getByLabelText('Mobile navigation menu')
+    expect(overlay.contains(document.activeElement)).toBe(true)
+
+    await user.keyboard('{Escape}')
+    expect(burgerButton).toHaveFocus()
+    expect(overlay).toHaveAttribute('inert')
+  })
+
+  it('renders a skip link to the main content', () => {
+    render(<Navigation />)
+
+    expect(screen.getByRole('link', { name: /skip to content/i })).toHaveAttribute('href', '#main')
   })
 })
