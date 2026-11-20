@@ -6,7 +6,7 @@
   "license": "MIT",
   "packageManager": "pnpm@11.28.12+sha512.94833387e35d503e8ad1010417cdeb82c120e7e69bafdf0a9db0690515beae7159274571e692b96abc2a085d3566fec54381afd978f65f64a85362dfd7e108f7",
   "engines": {
-    "node": "24.x",
+    "node": "26.x",
     "pnpm": ">=11.0.0"
   },
   "scripts": {
@@ -42,7 +42,7 @@
     "@testing-library/react": "16.3.3",
     "@testing-library/user-event": "14.6.10",
     "@types/jsdom": "28.0.3",
-    "@types/node": "24.19.2",
+    "@types/node": "26.6.6",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@vitejs/plugin-react": "6.3.0",
