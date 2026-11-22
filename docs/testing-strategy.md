@@ -37,7 +37,7 @@ To add a content-backed page:
 
 ## Security notes
 
-Security headers live in `next.config.ts`. When adding external resources, update the CSP deliberately. HTML generated from Markdown must stay sanitized through the DOMPurify allowlist in `lib/content.ts`.
+Security headers live in `next.config.ts`. When adding external resources, update the CSP deliberately. `script-src` allows only `'self'`; dev adds `'unsafe-eval'` for React Refresh. Every script must therefore load from a file, so `experimental.turbopackSharedRuntime` stays off: since Next 16.4 it inlines the Turbopack bootstrap, which the CSP blocks and the site never hydrates. HTML generated from Markdown must stay sanitized through the DOMPurify allowlist in `lib/content.ts`.
 
 ## Quality gates
 
@@ -69,7 +69,7 @@ pnpm validate     # Format check, lint, and type-check
 ## Test layers
 
 - **Component tests**: Vitest + Testing Library for interactive React behavior, especially navigation state, active links, and accessibility labels.
-- **End-to-end tests**: Playwright for the real visitor flow across Chromium desktop and Mobile Chrome.
+- **End-to-end tests**: Playwright for the real visitor flow across Chromium desktop and Mobile Chrome. The harness builds the site and runs `pnpm start` on port 3100, because bundling and the CSP differ between `pnpm dev` and production.
 - **Accessibility checks**: `@axe-core/playwright` on user-facing pages after layout or navigation changes.
 - **Build checks**: `next build` is the production contract for static generation, routing, and CSS compilation.
 
@@ -84,7 +84,8 @@ The testing sensor is the observable evidence that a change works through its us
 
 ## Current critical scenarios
 
-- `/` redirects to `/about`.
+- `/` redirects to `/about` on the server (`redirects()` in `next.config.ts`), so it works without JavaScript.
+- Every page hydrates in the production build with no CSP violations (`e2e/csp.spec.ts`).
 - Desktop navigation exposes all configured pages and marks the active page.
 - Mobile burger opens, closes, locks body scroll while open, moves focus into the menu, returns focus on Escape, and keeps link labels stable.
 - `/about` keeps the black and white noir comic contract (see `docs/adr/0005-noir-comic-design.md`): white background, black text, Comic Neue body, Bangers headline, comic panels, timeline cards, and no axe violations.
