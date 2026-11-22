@@ -32,6 +32,12 @@ const nextConfig: NextConfig = {
   compress: true,
   // Remove X-Powered-By: Next.js header for security (reduces information disclosure to attackers)
   poweredByHeader: false,
+  experimental: {
+    // Next 16.4 turns the shared runtime on by default. It inlines the Turbopack bootstrap
+    // into every page, which `script-src 'self'` blocks, so the site never hydrates. Off keeps
+    // the bootstrap an external script. https://github.com/vercel/next.js/issues/99800
+    turbopackSharedRuntime: false,
+  },
   async headers() {
     return [
       {
