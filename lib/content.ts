@@ -1,8 +1,8 @@
-import DOMPurify from 'dompurify'
 import fs from 'fs'
+import path from 'path'
+import DOMPurify from 'dompurify'
 import { JSDOM } from 'jsdom'
 import { marked } from 'marked'
-import path from 'path'
 
 const contentDirectory = path.join(process.cwd(), 'content')
 
