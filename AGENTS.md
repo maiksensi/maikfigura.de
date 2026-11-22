@@ -17,7 +17,7 @@ Personal homepage of Maik Figura. A static Next.js site using the **Pages Router
 - Check format, lint, and types: `pnpm validate`
 - Unit tests: `pnpm test`
 - Build: `pnpm build`
-- E2E and axe accessibility tests: `pnpm test:e2e` (starts `pnpm dev` itself)
+- E2E and axe accessibility tests: `pnpm test:e2e` (builds and starts the production server on port 3100 itself)
 
 ## Code style
 
