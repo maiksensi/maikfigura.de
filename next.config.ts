@@ -1,5 +1,8 @@
 import type { NextConfig } from 'next'
 
+// Dev needs eval for React Refresh; production bundles run without it.
+const isDev = process.env.NODE_ENV === 'development'
+
 const securityHeaders = [
   {
     key: 'Strict-Transport-Security',
@@ -7,8 +10,7 @@ const securityHeaders = [
   },
   {
     key: 'Content-Security-Policy',
-    value:
-      "default-src 'self'; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';",
+    value: `default-src 'self'; script-src 'self'${isDev ? " 'unsafe-eval'" : ''}; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';`,
   },
   {
     key: 'Referrer-Policy',
