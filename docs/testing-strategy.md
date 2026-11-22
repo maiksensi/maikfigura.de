@@ -12,16 +12,16 @@ This site is a small static-first Next.js application, so the testing guide shou
 
 ## Code conventions
 
-Formatting and import ordering are enforced by Biome (`biome.json`):
+oxfmt enforces formatting and import order (`.oxfmtrc.json`):
 
 - No semicolons.
 - Single quotes.
 - 2-space indentation.
 - ES5 trailing commas.
 - Max line width: 100 characters.
-- Imports are sorted automatically (Biome assist `organizeImports`).
+- oxfmt sorts imports (`sortImports`).
 
-Biome owns formatting for `.ts/.tsx/.json`; ESLint (`typescript-eslint`) owns linting. Tailwind CSS and Markdown are excluded from Biome and are not auto-formatted.
+oxfmt owns formatting for `.ts/.tsx/.json` and skips Markdown, CSS, and YAML. oxlint (`.oxlintrc.json`) owns linting: it keeps the `typescript-eslint` recommended rules, enables the react, jsx-a11y, nextjs, and import plugins at the correctness level, and fails on warnings.
 
 All handoffs should pass `pnpm validate` before merge. Use exact dependency versions and let Renovate handle routine dependency updates; see `docs/dependency-management.md` for the pin policy and its sensor.
 
@@ -44,7 +44,7 @@ Security headers live in `next.config.ts`. When adding external resources, updat
 Run these before handing off a visual or content change:
 
 ```bash
-pnpm validate     # biome check (format + import sort), eslint, tsc --noEmit
+pnpm validate     # oxfmt --check, oxlint, tsc --noEmit
 pnpm test
 pnpm build
 pnpm test:e2e
@@ -57,9 +57,9 @@ Common commands:
 ```bash
 pnpm dev          # Start development server with Turbopack
 pnpm build        # Production build and static generation check
-pnpm lint         # Run ESLint
-pnpm lint:fix     # Auto-fix ESLint issues
-pnpm format       # Format and sort imports with Biome
+pnpm lint         # Run oxlint
+pnpm lint:fix     # Auto-fix oxlint issues
+pnpm format       # Format and sort imports with oxfmt
 pnpm type-check   # TypeScript type checking
 pnpm test         # Run unit tests with Vitest
 pnpm test:e2e     # Run Playwright E2E tests

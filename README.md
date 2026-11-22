@@ -18,8 +18,8 @@ The dev server runs at <http://localhost:3000>. `/` redirects to `/about`.
 - `pnpm dev` - start the development server
 - `pnpm build` - build for production and prerender every page
 - `pnpm start` - serve the production build
-- `pnpm validate` - check formatting (Biome), lint (ESLint), and types (tsc)
-- `pnpm format` - format and sort imports with Biome
+- `pnpm validate` - check formatting (oxfmt), lint (oxlint), and types (tsc)
+- `pnpm format` - format and sort imports with oxfmt
 - `pnpm test` - run unit tests with Vitest
 - `pnpm test:e2e` - build the site, serve it on port 3100, and run Playwright end-to-end, CSP, and axe accessibility tests against it
 

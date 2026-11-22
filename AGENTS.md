@@ -21,7 +21,7 @@ Personal homepage of Maik Figura. A static Next.js site using the **Pages Router
 
 ## Code style
 
-Biome owns formatting: single quotes, no semicolons, 2-space indent, 100-character lines, sorted imports. Run `pnpm format` before you commit. ESLint owns linting.
+oxfmt owns formatting: single quotes, no semicolons, 2-space indent, 100-character lines, sorted imports. Run `pnpm format` before you commit. oxlint owns linting.
 
 ## Commits
 
