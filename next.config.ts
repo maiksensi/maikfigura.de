@@ -40,6 +40,9 @@ const nextConfig: NextConfig = {
     // the bootstrap an external script. https://github.com/vercel/next.js/issues/99800
     turbopackSharedRuntime: false,
   },
+  async redirects() {
+    return [{ source: '/', destination: '/about', permanent: false }]
+  },
   async headers() {
     return [
       {
