@@ -159,12 +159,8 @@ export default function Navigation() {
           transition-transform ${TRANSITION_DURATION}
           ${isOpen ? 'transform translate-x-0' : 'transform translate-x-full'}
         `}
-        onClick={closeMenu} // Close on backdrop click
       >
-        <ul
-          className="relative z-10 flex flex-col justify-center items-center h-full"
-          onClick={(e) => e.stopPropagation()} // Prevent closing when clicking nav content
-        >
+        <ul className="relative z-10 flex flex-col justify-center items-center h-full">
           {navPages.map((page) => (
             <li key={page} className="text-4xl mb-8">
               <NavigationLink href={`/${page}`} onClick={closeMenu} isActive={isActivePage(page)}>

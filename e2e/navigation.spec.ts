@@ -76,6 +76,18 @@ test.describe('Navigation Flow', () => {
     await expect(page.locator('nav button[aria-label*="Open navigation"]')).toBeVisible()
   })
 
+  test('mobile menu stays open when empty overlay space is tapped', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 })
+    await page.locator('nav button[aria-label*="Open navigation"]').click()
+    const overlay = page.getByRole('navigation', { name: 'Mobile navigation menu' })
+    await expect(overlay).toBeVisible()
+
+    await overlay.click({ position: { x: 10, y: 10 } })
+
+    await expect(page.locator('nav button[aria-label="Close navigation"]')).toBeVisible()
+    await expect(overlay).not.toHaveAttribute('inert')
+  })
+
   test('closed mobile menu links are not keyboard reachable', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 })
     for (let i = 0; i < 6; i++) {
