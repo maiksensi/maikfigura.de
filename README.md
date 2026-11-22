@@ -21,7 +21,7 @@ The dev server runs at <http://localhost:3000>. `/` redirects to `/about`.
 - `pnpm validate` - check formatting (Biome), lint (ESLint), and types (tsc)
 - `pnpm format` - format and sort imports with Biome
 - `pnpm test` - run unit tests with Vitest
-- `pnpm test:e2e` - run Playwright end-to-end and axe accessibility tests
+- `pnpm test:e2e` - build the site, serve it on port 3100, and run Playwright end-to-end, CSP, and axe accessibility tests against it
 
 ## Adding content
 
@@ -40,3 +40,4 @@ The dev server runs at <http://localhost:3000>. `/` redirects to `/about`.
 - `docs/testing-strategy.md` - quality gates, test layers, and the visual contract
 - `docs/dependency-management.md` - exact version pinning
 - `docs/git-safety.md` - git rules, especially for force-push
+- `docs/adr/` - architecture and design decisions, including the visual design contract
