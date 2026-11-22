@@ -35,6 +35,10 @@
       "matchUpdateTypes": ["lockFileMaintenance"],
       "automerge": true,
       "schedule": ["monthly"]
+    },
+    {
+      "matchPackageNames": ["oxlint", "oxfmt"],
+      "groupName": "oxc"
     }
   ],
   "timezone": "Europe/Berlin",
