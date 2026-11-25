@@ -82,8 +82,8 @@ importers:
         specifier: 6.0.3
         version: 6.0.3
       typescript-language-server:
-        specifier: 5.3.0
-        version: 5.3.0
+        specifier: 6.1.0
+        version: 6.1.0
       vitest:
         specifier: 4.1.12
         version: 4.1.12(@types/node@24.19.2)(@vitest/ui@4.1.12)(jsdom@29.1.1)(vite@8.1.5(@types/node@24.19.2)(esbuild@0.27.3)(jiti@2.7.0))
@@ -1766,9 +1766,9 @@ packages:
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
-  typescript-language-server@5.3.0:
-    resolution: {integrity: sha512-5puofxZHgFdAYtfNpmwCAvgtaYgg8wrUnH30m7Ze3QuguId5RNRadKASpOpyDxTyUdAF51FjhTdjntLw/EuWcQ==}
-    engines: {node: '>=20'}
+  typescript-language-server@6.1.0:
+    resolution: {integrity: sha512-/O/dr2CbvDS1W9jKJcBQxk4WagUQ97oBb8k/eq9cOslsbtAuC2BDPpkcULxE2SEZiPIJvVNLeNjLZe9hQl1zCQ==}
+    engines: {node: '>=22.22.2'}
     hasBin: true
 
   typescript@6.0.3:
@@ -3195,7 +3195,7 @@ snapshots:
 
   tslib@2.8.1: {}
 
-  typescript-language-server@5.3.0:
+  typescript-language-server@6.1.0:
     dependencies:
       vscode-jsonrpc: 5.0.1
       vscode-languageserver-protocol: 3.17.5
